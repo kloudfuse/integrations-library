@@ -1,0 +1,3728 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_KFUSEDATASOURCE",
+      "label": "KfuseDatasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "This dashboard provides you with immediate visibility into the health and performance of your AKS clusters.\n\nAKS orchestrates the operation of your services within a cluster, including autoscaling of the nodes. These nodes are part of VM Scale Sets created and managed by AKS. Use this section of the dashboard to:\n\nMonitor your AKS infrastructure including the CPU, Memory, and Disk utilization at the cluster level\nIdentify the clusters with the highest resource utilization\nTrack Network egress and ingress by cluster",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "About",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 3,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "This dashboard provides you with immediate visibility into the health and performance of your AKS clusters.\n\nAKS orchestrates the operation of your services within a cluster, including autoscaling of the nodes. These nodes are part of VM Scale Sets created and managed by AKS. Use this section of the dashboard to:\n- Monitor your AKS infrastructure including the CPU, Memory, and Disk utilization at the cluster level\n- Identify the clusters with the highest resource utilization\n- Track Network egress and ingress by cluster",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Azure Kubernetes Service (AKS)",
+      "type": "text"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 4,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Overview",
+      "type": "row"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 8
+      },
+      "id": 5,
+      "isEdited": false,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "none",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "\ncount(sum by (resourceName) (azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceName=~\"${resourceName}\"}))",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "AKS Clusters",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Value"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "gauge",
+                  "valueDisplayMode": "text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 8,
+        "y": 8
+      },
+      "id": 6,
+      "isEdited": false,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "frameIndex": 2,
+        "showHeader": true
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "avg by(resourceName, resourceGroup, subscriptionName)(avg_over_time(azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceName=~\"${resourceName}\", resourceGroup=~\"${resourceGroup}\"}[$__range]))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Clusters by Highest Average CPU Utilization Incl. Highest Utilization by Individual Node",
+      "type": "table"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "noValue": "0",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 15
+      },
+      "id": 7,
+      "isEdited": false,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "background_solid",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "none",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "(sum(azure_containerservice_managedclusters_count{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\",status!=\"running\"}))",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "sum(azure_containerservice_managedclusters_count{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\",status!=\"running\"})",
+          "hide": true,
+          "refId": "B"
+        }
+      ],
+      "thresholds": "",
+      "title": "Unhealthy Clusters",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 15
+      },
+      "id": 8,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "\ncount(sum by (resourceName) (azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceName=~\"${resourceName}\"}))",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Node Count",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 15
+      },
+      "id": 9,
+      "isEdited": false,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName,resourceGroup,subscription_name,status)(last_over_time(azure_containerservice_managedclusters_count{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\",status!=\"running\"}[10m]))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Clusters Reporting Unknown or Unhealthy Status",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 10,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Clusters",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 11,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "AKS orchestrates the operation of your services within a cluster, including autoscaling of the nodes. These nodes are part of VM Scale Sets created and managed by AKS. Use this section of the dashboard to:\n- Monitor your AKS infrastructure including the CPU, Memory, and Disk utilization at the cluster level\n- Identify the clusters with the highest resource utilization\n- Track Network egress and ingress by cluster",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 26
+      },
+      "id": 12,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, avg by (resourceName)(avg_over_time(azure_containerservice_managedclusters_node_memory_rss_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Clusters with Highest Memory RSS Utilization (bytes)",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 26
+      },
+      "id": 13,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, avg by (resourceName)(avg_over_time(azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Clusters with Highest CPU Usage",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 26
+      },
+      "id": 14,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "desc"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, avg by (resourceName)(avg_over_time(azure_containerservice_managedclusters_node_disk_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Clusters with Highest Disk Utilization (%)",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 33
+      },
+      "id": 15,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName)(azure_containerservice_managedclusters_node_memory_rss_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory RSS Utilization by AKS Cluster (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 33
+      },
+      "id": 16,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, sum by (resourceName)(avg_over_time(azure_containerservice_managedclusters_node_network_out_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Clusters with Highest Network Egress (bytes)",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 33
+      },
+      "id": 17,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName)(azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Utilization by AKS Cluster (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 40
+      },
+      "id": 18,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max by(resourceName)(azure_containerservice_managedclusters_node_memory_working_set_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Working Set Utilization by AKS Cluster (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 8,
+        "y": 40
+      },
+      "id": 19,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "(0-sum by(resourceName)(azure_containerservice_managedclusters_node_network_in_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}))",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "sum by(resourceName)(azure_containerservice_managedclusters_node_network_out_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "hide": false,
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Network Traffic by AKS Cluster",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 47
+      },
+      "id": 20,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Nodes",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 48
+      },
+      "id": 21,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "AKS orchestrates the operation of your services within a cluster, including autoscaling of the nodes. These nodes are part of VM Scale Sets created and managed by AKS. Use this section of the dashboard to:\n\n- Monitor your AKS infrastructure including the CPU, Memory, and Disk utilization of each node within your AKS clusters\n- Identify the nodes with the highest resource utilization\n- Track Network egress and ingress by node",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 16,
+        "x": 0,
+        "y": 51
+      },
+      "id": 22,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk((5),(sum by(resourceName, dimensionNode)(sum_over_time(azure_containerservice_managedclusters_node_network_out_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[$__range]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Nodes with Highest Network Egress (bytes)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 51
+      },
+      "id": 23,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, avg by (resourceName, node)(avg_over_time(azure_containerservice_managedclusters_node_memory_rss_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Nodes with Highest Memory RSS Utilization (%)",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 58
+      },
+      "id": 24,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max by(resourceName,node)(azure_containerservice_managedclusters_node_memory_working_set_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory Working Set Utilization by AKS Node (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 58
+      },
+      "id": 25,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, avg by (node, resourceName)(avg_over_time(azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Nodes with Highest CPU Usage",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 58
+      },
+      "id": 26,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName,node)(azure_containerservice_managedclusters_node_cpu_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Utilization by AKS Node (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "kbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 65
+      },
+      "id": 27,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "(0-sum by(resourceName,node)(azure_containerservice_managedclusters_node_network_in_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}))",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "sum by(resourceName,node)(azure_containerservice_managedclusters_node_network_in_bytes{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Network Traffic by AKS Node (bytes)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 65
+      },
+      "id": 28,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max by(resourceName,node)(azure_containerservice_managedclusters_node_memory_rss_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Memory RSS Utilization by AKS Node (%)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 65
+      },
+      "id": 29,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "avg by(resourceName,node)(sum_over_time(azure_containerservice_managedclusters_node_disk_usage_percentage{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[1m]))",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Disk Utilization by AKS Node (%)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 72
+      },
+      "id": 30,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Pods",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 73
+      },
+      "id": 31,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Pods are the smallest, most basic deployable objects in Kubernetes. A Pod represents a single instance of a running process in your cluster, and contains one or more containers. Use this section of the dashboard to:\n- Monitor the status and phase of the pods running on your AKS clusters.\n- Track the number of pods in ready state",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 76
+      },
+      "id": 32,
+      "isEdited": false,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": false,
+            "displayName": "Value"
+          }
+        ]
+      },
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "avg by(resourceName,phase,namespace,pod)(sum_over_time((azure_containerservice_managedclusters_kube_pod_status_phase{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[10m])))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Pods by Phase and Namespace",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 76
+      },
+      "id": 33,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "sum by(resourceName)(sum_over_time(azure_containerservice_managedclusters_kube_pod_status_ready{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[1m]))",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Number of Pods in Ready State by AKS Cluster",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 76
+      },
+      "id": 34,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, sum by (resourceName)(avg_over_time(azure_containerservice_managedclusters_kube_pod_status_ready{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Highest Average Number of Pods in Ready State by AKS Cluster",
+      "type": "toplist"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 83
+      },
+      "id": 35,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Control Plane: API Server",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 84
+      },
+      "id": 36,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "The [control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) is responsible for global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events. In AKS, the control plane is fully managed by Azure. The data in this section provides insights into the operation of the API server. The API server is an interface that exposes the Kubernetes API and facilitates communication between Kubernetes components. Use this section to:\n\n- Understand the status codes of requests made to Kube API Server. \n- Review the top 10 URLs with problem status codes.  \n- Review the severity of various Kube API Server events, and analyze any fatal or erroneous events of Kube API Server operations.\n- Find spikes or abnormal activity in the status codes of auto-scaler operations.",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "The [control plane](https://kubernetes.io/docs/concepts/overview/components/#control-plane-components) is responsible for global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events. In AKS, the control plane is fully managed by Azure. The data in this section provides insights into the operation of the API server. The API server is an interface that exposes the Kubernetes API and facilitates communication between Kubernetes components. Use this section to:\n\n- Understand the status codes of requests made to Kube API Server. \n- Review the top 10 URLs with problem status codes.  \n- Review the severity of various Kube API Server events, and analyze any fatal or erroneous events of Kube API Server operations.\n- Find spikes or abnormal activity in the status codes of auto-scaler operations.",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 8,
+        "x": 0,
+        "y": 87
+      },
+      "id": 37,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "avg by(resourceName, resourceGroup, subscriptionName)((azure_containerservice_managedclusters_apiserver_current_inflight_requests{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\", resourceName=~\"${resourceName}\" }))",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "API Server Current Inflight Requests by AKS Cluster",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 87
+      },
+      "id": 38,
+      "isEdited": false,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "10.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "topk(10, sum by (resourceName)(sum_over_time(azure_containerservice_managedclusters_apiserver_current_inflight_requests{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\",subscriptionID=~\"${subscriptionID}\"} [10m])))",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "interval": "10m",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Top API Server Current Inflight Requests by AKS Cluster",
+      "type": "toplist"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 87
+      },
+      "id": 39,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName)(sum_over_time(azure_containerservice_managedclusters_cluster_autoscaler_unschedulable_pods_count{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[5m:]))",
+          "refId": "A"
+        }
+      ],
+      "title": "Autoscaler Unschedulable Pods by AKS Cluster",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 94
+      },
+      "id": 40,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(resourceName)(sum_over_time(azure_containerservice_managedclusters_cluster_autoscaler_unneeded_nodes_count{subscriptionID=~\"${subscriptionID}\",resourceGroup=~\"${resourceGroup}\"}[5m:]))",
+          "refId": "A"
+        }
+      ],
+      "title": "Autoscaler Unneeded Nodes Count by AKS Cluster",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 94
+      },
+      "id": 41,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "sum(count_over_time({ source=\"azure.containerservice\",subscription_id=~\".*\",resource_group=~\".*\",level=~\".*\" }   | logfmt | category=\"kube-apiserver\" [1m])) by (level)",
+          "hide": false,
+          "instant": false,
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "API Server Events by Severity",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 101
+      },
+      "id": 42,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "Abnormally high latency in your application may indicate that the API server is struggling to execute its work. An elevated error rate and inflight request count can help validate whether or not observed high application latency is resulting from issues in the API server.",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 103
+      },
+      "id": 43,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Control Plane: Controller Manager",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 104
+      },
+      "id": 44,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "The controller manager runs controllers that manage the current state of the cluster and work towards the desired state. The work queue creates pods to execute jobs. Use this section to:\n\n- Find pod and scale operations performed by controller manager. \n- Find the severity of various controller manager events and analyze fatal and erroneous controller manager operation events.",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 107
+      },
+      "id": 45,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "empty query: ",
+          "refId": "A"
+        }
+      ],
+      "title": "Creates Over Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 107
+      },
+      "id": 46,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "editorMode": "code",
+          "expr": "empty query: ",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Controller Manager Events by Severity",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 107
+      },
+      "id": 47,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "empty query: ",
+          "refId": "A"
+        }
+      ],
+      "title": "Deletes Over Time",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 114
+      },
+      "id": 48,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "empty query: ",
+          "refId": "A"
+        }
+      ],
+      "title": "Scale Events Over Time",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 121
+      },
+      "id": 49,
+      "isEdited": false,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "AKS Control Plane: Scheduler",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 122
+      },
+      "id": 50,
+      "isEdited": false,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "The scheduler looks for unscheduled pods and assigns them to available nodes. Use this section to:\n\n- Find the severity of various Kube scheduler events.\n- Analyze fatal or erroneous events of Kube scheduler operations.\n\n",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.4.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 125
+      },
+      "id": 51,
+      "isEdited": false,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "empty query: ",
+          "refId": "A"
+        }
+      ],
+      "title": "Scheduler Events by Severity",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,subscriptionID)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "",
+        "multi": true,
+        "multiFormat": "",
+        "name": "subscriptionID",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,subscriptionID)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,resourceName)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "",
+        "multi": true,
+        "multiFormat": "",
+        "name": "resourceName",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,resourceName)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "aks-agentpool-18513153-vmss000000",
+            "aks-agentpool-33679783-vmss000001"
+          ],
+          "value": [
+            "aks-agentpool-18513153-vmss000000",
+            "aks-agentpool-33679783-vmss000001"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,dimensionNode)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "",
+        "multi": true,
+        "multiFormat": "",
+        "name": "node",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,dimensionNode)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,resourceGroup)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "",
+        "multi": true,
+        "multiFormat": "",
+        "name": "resourceGroup",
+        "options": [],
+        "query": {
+          "qryType": 1,
+          "query": "label_values(azure_containerservice_managedclusters_node_cpu_usage_percentage,resourceGroup)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Azure Kubernetes Service 3",
+  "weekStart": ""
+}

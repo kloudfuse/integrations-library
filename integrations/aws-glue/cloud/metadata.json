@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS Glue",
+  "summary": "A dashboard for AWS Glue, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "analytics",
+    "aws"
+  ]
+}

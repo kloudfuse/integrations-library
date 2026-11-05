@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "MySQL",
+  "summary": "MySQL overview from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "database"
+  ]
+}

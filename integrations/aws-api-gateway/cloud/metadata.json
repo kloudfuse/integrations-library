@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon API Gateway",
+  "summary": "A dashboard for Amazon API Gateway, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "networking",
+    "serverless"
+  ]
+}

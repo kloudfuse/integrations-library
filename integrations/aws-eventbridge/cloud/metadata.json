@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon EventBridge",
+  "summary": "A dashboard for Amazon EventBridge, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "messaging"
+  ]
+}

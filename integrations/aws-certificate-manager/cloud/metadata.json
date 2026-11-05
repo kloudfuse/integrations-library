@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS Certificate Manager",
+  "summary": "A dashboard for AWS Certificate Manager, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "security"
+  ]
+}

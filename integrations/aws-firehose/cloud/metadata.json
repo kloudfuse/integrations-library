@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon Data Firehose",
+  "summary": "A dashboard for Amazon Data Firehose, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "streaming"
+  ]
+}

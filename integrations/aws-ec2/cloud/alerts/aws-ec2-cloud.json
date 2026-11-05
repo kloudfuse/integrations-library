@@ -1,0 +1,378 @@
+{
+  "name": "aws-ec2-cloud",
+  "interval": "1m",
+  "rules": [
+    {
+      "title": "[AWS] EC2 CPU Utilization Monitor",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "avg by (instance_id)(aws_ec2_cpuutilization)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    90
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "mean",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    90
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 90",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "AWS EC2 {{ $labels.instance_id }} has crossed CPU Utilization threshold",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] EC2 Host OK Monitor",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "avg by (instance_id)(aws_ec2_host_ok)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    1
+                  ],
+                  "type": "lt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "mean",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    1
+                  ],
+                  "type": "lt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B < 1",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "EC2 system check is failing for {{ $labels.instance_id }} .",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] EC2 Status Check Monitor",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "avg by (instance_id)(aws_ec2_status_check_failed)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0.0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "mean",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0.0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0.0",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "EC2 Status Check failed for {{ $labels.instance_id }}",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    }
+  ]
+}

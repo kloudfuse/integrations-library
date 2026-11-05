@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon MSK",
+  "summary": "A dashboard for Amazon MSK, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "streaming"
+  ]
+}

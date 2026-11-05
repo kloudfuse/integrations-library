@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon Athena",
+  "summary": "A dashboard for Amazon Athena, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "analytics",
+    "aws"
+  ]
+}

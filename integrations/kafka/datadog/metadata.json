@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Kafka",
+  "summary": "Kafka broker, request and consumer metrics from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "streaming"
+  ]
+}

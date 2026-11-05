@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS Lambda",
+  "summary": "A dashboard and alert rules for AWS Lambda, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "serverless"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS Classic Load Balancer",
+  "summary": "A dashboard for AWS Classic Load Balancer, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "networking"
+  ]
+}

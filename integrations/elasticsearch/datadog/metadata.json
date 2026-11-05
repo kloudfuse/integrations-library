@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Elasticsearch",
+  "summary": "Elasticsearch search, indexing and transport from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "search"
+  ]
+}

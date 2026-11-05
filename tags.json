@@ -1,0 +1,19 @@
+[
+  "analytics",
+  "aws",
+  "azure",
+  "cache",
+  "compute",
+  "containers",
+  "database",
+  "gcp",
+  "host",
+  "kubernetes",
+  "messaging",
+  "networking",
+  "search",
+  "security",
+  "serverless",
+  "storage",
+  "streaming"
+]

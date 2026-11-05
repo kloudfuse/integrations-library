@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Postgres",
+  "summary": "Postgres row, index and connection metrics from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "database"
+  ]
+}

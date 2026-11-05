@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS WAF",
+  "summary": "A dashboard for AWS WAF, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "security"
+  ]
+}

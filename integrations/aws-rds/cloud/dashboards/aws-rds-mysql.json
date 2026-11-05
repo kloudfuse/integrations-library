@@ -1,0 +1,3494 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_KFUSEDATASOURCE",
+      "label": "KfuseDatasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 50,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Overview",
+      "type": "row"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(sum_over_time(aws_rds_queries{region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",aws_account=~\"${account}\"}[2m:]))",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Query Rate /s",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": []
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "tiling": "treemapSquarify"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbclusteridentifier)(last_over_time(aws_rds_database_connections{dbinstanceidentifier=~\"${dbinstance}\",aws_account=~\"${account}\",engine=~\"aurora-mysql|mysql\",region=~\"${region}\"}[10m]))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Database Connections by Cluster",
+      "type": "marcusolsson-treemap-panel"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 51,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Availability",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.cpuutilization{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 9
+      },
+      "id": 5,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_cpuutilization{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "CPU Utilization by DB Instance",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 9
+      },
+      "id": 6,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_cpuutilization{dbinstanceidentifier=~\"${dbinstance}\",aws_account=~\"${account}\",region=~\"${region}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Avg CPU Utilization",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.cpuutilization{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 10, 'mean', 'desc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 9
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_cpuutilization{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_cpuutilization{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest CPU Utilization ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 16
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_network_receive_throughput{dbclusteridentifier=~\"${dbcluster}\",dbinstanceidentifier=~\"${dbinstance}\",aws_account=~\"${account}\",region=~\"${region}\",engine=~\"aurora-mysql|mysql\"})",
+          "legendFormat": "Receive Throughput",
+          "refId": "A"
+        }
+      ],
+      "title": "Network Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.freeable_memory{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 16
+      },
+      "id": 9,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_freeable_memory{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Available RAM on Instances",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 16
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_freeable_memory{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "hide": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Instances with Least Available RAM",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 23
+      },
+      "id": 12,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "A high queue depth can indicate that the storage volume is experiencing a high number of I/O operations, which may be causing performance issues. ",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "A high queue depth can indicate that the storage volume is experiencing a high number of I/O operations, which may be causing performance issues. ",
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.disk_queue_depth{$account AND $region AND $dbinstance AND $dbcluster AND (engine:mysql OR engine:aurora-mysql*)} by {dbinstanceidentifier}, 25, 'mean', 'desc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 23
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_disk_queue_depth{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"mysql|aurora-mysql.*\"})",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((25),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_disk_queue_depth{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"mysql|aurora-mysql.*\"}[10m]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest Disk Queue Depth",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "id": 52,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Connections",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(max:aws.rds.database_connections{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 31
+      },
+      "id": 15,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "bottomk((5),(max by(dbinstanceidentifier)(avg_over_time(aws_rds_database_connections{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Connections by Database",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "bars",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 31
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "sum by(dbinstanceidentifier)(aws_rds_database_connections{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "legendFormat": "Connections",
+          "refId": "A"
+        }
+      ],
+      "title": "Connections by Database",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 31
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_active_transactions{dbclusteridentifier=~\"${dbcluster}\",dbinstanceidentifier=~\"${dbinstance}\",aws_account=~\"${account}\",region=~\"${region}\"})",
+          "refId": "A"
+        }
+      ],
+      "title": "Active Transactions by Database",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 38
+      },
+      "id": 53,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Query Performance",
+      "type": "row"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 39
+      },
+      "id": 18,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max(aws_rds_write_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql.*|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Max Write Latency",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 39
+      },
+      "id": 19,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max(aws_rds_read_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Max Read Latency",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 39
+      },
+      "id": 20,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max(aws_rds_commit_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Max Commit Latency",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 46
+      },
+      "id": 21,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_select_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "SELECT Latency",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 2,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 46
+      },
+      "id": 22,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_dmllatency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "DML Latency",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.write_latency{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier})\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 46
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_write_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_write_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest Write Latency",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.read_latency{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier})\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 53
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_read_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_read_latency{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest Read Latency",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.dmlthroughput{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql*)} by {dbinstanceidentifier}.as_count())\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 53
+      },
+      "id": 31,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(sum_over_time(aws_rds_dmlthroughput{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"}[2m:]))",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(sum_over_time(avg_over_time(aws_rds_dmlthroughput{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"}[10m])[2m:]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "DML Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 53
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "sum by(dbinstanceidentifier)(sum_over_time(aws_rds_blocked_transactions{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"}[2m:]))",
+          "refId": "A"
+        }
+      ],
+      "title": "Instances with Blocked Transactions",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 60
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(sum_over_time(aws_rds_select_throughput{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"}[2m:]))",
+          "refId": "A"
+        }
+      ],
+      "title": "SELECT Throughput",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.aurora_replica_lag{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql*)} by {dbinstanceidentifier})\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 60
+      },
+      "id": 32,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(aws_rds_aurora_replica_lag{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"})",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_aurora_replica_lag{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql.*\"}[10m]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Replication Lag by Instance",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 60
+      },
+      "id": 33,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "sum by(dbinstanceidentifier)(sum_over_time(aws_rds_deadlocks{dbinstanceidentifier=~\"${dbinstance}\",engine=~\"aurora-mysql|mysql.*\",dbclusteridentifier=~\"${dbcluster}\",aws_account=~\"${account}\",region=~\"${region}\"}[2m:]))",
+          "refId": "A"
+        }
+      ],
+      "title": "Deadlocks by Instance",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 67
+      },
+      "id": 54,
+      "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Storage & I/O",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 68
+      },
+      "id": 38,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(last_over_time(aws_rds_free_storage_space{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"mysql|aurora-mysql.*\"}[10m]))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "legendFormat": "Free Storage Space",
+          "refId": "A"
+        }
+      ],
+      "title": "Instances with Lowest Available Disk Space",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: (top(avg:aws.rds.free_storage_space{$account,$region,$dbinstance,$dbcluster} by {dbinstanceidentifier}, 5, 'mean', 'asc') / top(avg:aws.rds.total_storage_space{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')) * 100\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 68
+      },
+      "id": 39,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "((bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_free_storage_space{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\"}[10m]))))/bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_total_storage_space{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m])))))*100)",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(last_over_time(aws_rds_free_storage_space{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\"}[10m]))",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "10m",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(last_over_time(aws_rds_total_storage_space{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))",
+          "format": "table",
+          "hide": true,
+          "instant": true,
+          "interval": "10m",
+          "refId": "C"
+        }
+      ],
+      "title": "Instances with Least % Storage Available",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 68
+      },
+      "id": 40,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "If the % of free storage space compared to the total storage is running low, it may be necessary to increase the size of the storage volume or take other steps to free up space.",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 75
+      },
+      "id": 41,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_write_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Avg Write ops /second",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.write_iops{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 75
+      },
+      "id": 42,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_write_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Write Operations by Instance",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.write_iops{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}.as_rate())\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 75
+      },
+      "id": 43,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(rate(aws_rds_write_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[2m:]))",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(rate(avg_over_time(aws_rds_write_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m])[2m:]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest Write Operations ",
+      "type": "timeseries"
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 82
+      },
+      "id": 44,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "max(aws_rds_swap_usage{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Max Swap Usage",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "colorBackground": false,
+      "colorValue": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "decimals": 1,
+      "editable": true,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "format": "",
+      "gauge": {
+        "maxValue": 0,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": false
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 82
+      },
+      "id": 45,
+      "nullPointMode": "",
+      "options": {
+        "colorMode": "",
+        "content": "",
+        "displayMode": "",
+        "graphMode": "",
+        "justifyMode": "",
+        "mode": "",
+        "orientation": "",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "sparkline": {},
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg(aws_rds_read_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"})",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "",
+      "title": "Avg Read ops /second",
+      "type": "stat",
+      "valueFontSize": "",
+      "valueName": ""
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top(avg:aws.rds.read_iops{$account AND $region AND $dbinstance AND $dbcluster AND (engine:mysql OR engine:aurora-mysql)} by {dbinstanceidentifier}, 5, 'mean', 'asc')\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "inspect": false
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byType",
+              "options": "number"
+            },
+            "properties": [
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 82
+      },
+      "id": 46,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": true,
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "bottomk((5),(avg by(dbinstanceidentifier)(avg_over_time(aws_rds_read_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"mysql|aurora-mysql\"}[10m]))))",
+          "format": "table",
+          "instant": true,
+          "interval": "10m",
+          "refId": "A"
+        }
+      ],
+      "title": "Read Operations by Instance",
+      "transform": "",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "description": "Source Query: top10(avg:aws.rds.read_iops{$account AND $region AND $dbinstance AND $dbcluster AND (engine:aurora-mysql OR engine:mysql)} by {dbinstanceidentifier}.as_rate())\ntop is converted to topk",
+      "editable": false,
+      "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "palette-classic",
+            "seriesBy": "last"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "",
+            "barAlignment": 0,
+            "drawStyle": "lines",
+            "fillOpacity": 95,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 3,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "",
+            "spanNulls": false,
+            "stacking": {
+              "group": "",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": ""
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 89
+      },
+      "id": 47,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "avg by(dbinstanceidentifier)(rate(aws_rds_read_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[2m:]))",
+          "hide": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "expr": "topk((10),(avg by(dbinstanceidentifier)(rate(avg_over_time(aws_rds_read_iops{aws_account=~\"${account}\",region=~\"${region}\",dbinstanceidentifier=~\"${dbinstance}\",dbclusteridentifier=~\"${dbcluster}\",engine=~\"aurora-mysql|mysql\"}[10m])[2m:]))))",
+          "refId": "B"
+        }
+      ],
+      "title": "Instances with Highest Read Operations ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_KFUSEDATASOURCE}"
+      },
+      "editable": false,
+      "error": false,
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 89
+      },
+      "id": 48,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "If the swap usage is high, it may indicate that the instance is running low on available memory and is using swap space to store data that is normally stored in memory.",
+        "mode": "markdown"
+      },
+      "pageSize": 0,
+      "pluginVersion": "10.2.3",
+      "renderer": "flot",
+      "scroll": false,
+      "showHeader": true,
+      "sort": {
+        "col": 0,
+        "desc": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_KFUSEDATASOURCE}"
+          },
+          "refId": "A"
+        }
+      ],
+      "type": "text"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 39,
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "aws_account",
+        "multi": true,
+        "multiFormat": "",
+        "name": "account",
+        "options": [],
+        "query": {
+          "query": "label_values(aws_account)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "region",
+        "multi": true,
+        "multiFormat": "",
+        "name": "region",
+        "options": [],
+        "query": {
+          "query": "label_values(region)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "dbinstanceidentifier",
+        "multi": true,
+        "multiFormat": "",
+        "name": "dbinstance",
+        "options": [],
+        "query": {
+          "query": "label_values(dbinstanceidentifier)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "allFormat": "",
+        "allValue": ".*",
+        "current": {
+          "selected": true,
+          "text": [
+            "All"
+          ],
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "P09C4D52DEC9B98E6"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "dbclusteridentifier",
+        "multi": true,
+        "multiFormat": "",
+        "name": "dbcluster",
+        "options": [],
+        "query": {
+          "query": "label_values(dbclusteridentifier)",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "AWS RDS (MySQL)",
+  "weekStart": ""
+}

@@ -1,0 +1,805 @@
+{
+  "schemaVersion": 1,
+  "integrations": [
+    {
+      "id": "aws-api-gateway-cloud",
+      "name": "Amazon API Gateway",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "networking",
+        "serverless"
+      ],
+      "description": "A dashboard for Amazon API Gateway, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ApiGateway` namespace in the metric stream, or stream all namespaces.\n3. API Gateway publishes stage-level metrics by default; per-route metrics need detailed metrics: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#api-gateway-detailed-metrics).\n",
+      "path": "aws-api-gateway-cloud.json",
+      "dashboards": [
+        "Amazon API Gateway"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-application-elb-cloud",
+      "name": "AWS Application Load Balancer",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "networking"
+      ],
+      "description": "A dashboard for AWS Application Load Balancer, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ApplicationELB` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-application-elb-cloud.json",
+      "dashboards": [
+        "AWS ApplicationELB"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-athena-cloud",
+      "name": "Amazon Athena",
+      "collector": "cloud",
+      "tags": [
+        "analytics",
+        "aws"
+      ],
+      "description": "A dashboard for Amazon Athena, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Athena` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-athena-cloud.json",
+      "dashboards": [
+        "AWS Athena"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-auto-scaling-cloud",
+      "name": "AWS Auto Scaling",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "compute"
+      ],
+      "description": "A dashboard for AWS Auto Scaling, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/AutoScaling` namespace in the metric stream, or stream all namespaces.\n3. Group-level metrics (instance counts, scaling activity) must be enabled per Auto Scaling group: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#autoscaling).\n",
+      "path": "aws-auto-scaling-cloud.json",
+      "dashboards": [
+        "AWS Auto Scaling"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-certificate-manager-cloud",
+      "name": "AWS Certificate Manager",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "security"
+      ],
+      "description": "A dashboard for AWS Certificate Manager, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/CertificateManager` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-certificate-manager-cloud.json",
+      "dashboards": [
+        "AWS Certificate Manager"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-documentdb-cloud",
+      "name": "Amazon DocumentDB",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "database"
+      ],
+      "description": "A dashboard for Amazon DocumentDB, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/DocDB` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-documentdb-cloud.json",
+      "dashboards": [
+        "AWS DocumentDB"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-dynamodb-cloud",
+      "name": "Amazon DynamoDB",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "database"
+      ],
+      "description": "A dashboard for Amazon DynamoDB, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/DynamoDB` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-dynamodb-cloud.json",
+      "dashboards": [
+        "Amazon DynamoDB"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-ebs-cloud",
+      "name": "Amazon EBS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "storage"
+      ],
+      "description": "A dashboard for Amazon EBS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/EBS` namespace in the metric stream, or stream all namespaces.\n3. Volume-level metrics appear only for volumes attached to a running instance: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#ebs-metrics).\n",
+      "path": "aws-ebs-cloud.json",
+      "dashboards": [
+        "AWS EBS"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-ec2-cloud",
+      "name": "Amazon EC2",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "compute"
+      ],
+      "description": "A dashboard and alert rules for Amazon EC2, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/EC2` namespace in the metric stream, or stream all namespaces.\n3. EC2 publishes 5-minute metrics by default; 1-minute granularity needs detailed monitoring: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#ec2-detailed-monitoring).\n",
+      "path": "aws-ec2-cloud.json",
+      "dashboards": [
+        "AWS EC2 Overview"
+      ],
+      "alerts": [
+        "[AWS] EC2 CPU Utilization Monitor",
+        "[AWS] EC2 Host OK Monitor",
+        "[AWS] EC2 Status Check Monitor"
+      ]
+    },
+    {
+      "id": "aws-ecs-cloud",
+      "name": "Amazon ECS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "containers"
+      ],
+      "description": "A dashboard for Amazon ECS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ECS` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-ecs-cloud.json",
+      "dashboards": [
+        "Amazon ECS"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-efs-cloud",
+      "name": "Amazon EFS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "storage"
+      ],
+      "description": "A dashboard for Amazon EFS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/EFS` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-efs-cloud.json",
+      "dashboards": [
+        "AWS EFS"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-elasticache-cloud",
+      "name": "Amazon ElastiCache",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "cache"
+      ],
+      "description": "Dashboards for Amazon ElastiCache, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ElastiCache` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-elasticache-cloud.json",
+      "dashboards": [
+        "AWS Elasticache (Memcached)",
+        "AWS Elasticache (Redis)"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-elb-cloud",
+      "name": "AWS Classic Load Balancer",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "networking"
+      ],
+      "description": "A dashboard for AWS Classic Load Balancer, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ELB` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-elb-cloud.json",
+      "dashboards": [
+        "AWS ELB"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-eventbridge-cloud",
+      "name": "Amazon EventBridge",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "messaging"
+      ],
+      "description": "A dashboard for Amazon EventBridge, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Events` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-eventbridge-cloud.json",
+      "dashboards": [
+        "Amazon EventBridge"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-firehose-cloud",
+      "name": "Amazon Data Firehose",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "streaming"
+      ],
+      "description": "A dashboard for Amazon Data Firehose, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Firehose` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-firehose-cloud.json",
+      "dashboards": [
+        "AWS Kinesis Firehose"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-glue-cloud",
+      "name": "AWS Glue",
+      "collector": "cloud",
+      "tags": [
+        "analytics",
+        "aws"
+      ],
+      "description": "A dashboard for AWS Glue, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `Glue` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-glue-cloud.json",
+      "dashboards": [
+        "AWS Glue Jobs"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-kinesis-cloud",
+      "name": "Amazon Kinesis Data Streams",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "streaming"
+      ],
+      "description": "A dashboard for Amazon Kinesis Data Streams, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Kinesis` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-kinesis-cloud.json",
+      "dashboards": [
+        "AWS Kinesis Data Streams"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-lambda-cloud",
+      "name": "AWS Lambda",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "serverless"
+      ],
+      "description": "A dashboard and alert rules for AWS Lambda, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Lambda` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-lambda-cloud.json",
+      "dashboards": [
+        "AWS Lambda"
+      ],
+      "alerts": [
+        "[AWS] Lambda High Error Rate",
+        "[AWS] Lambda High Iterator Rate ",
+        "[AWS] Lambda High Throttles",
+        "[AWS] Lambda Timeout"
+      ]
+    },
+    {
+      "id": "aws-mq-cloud",
+      "name": "Amazon MQ",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "messaging"
+      ],
+      "description": "A dashboard for Amazon MQ, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/AmazonMQ` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-mq-cloud.json",
+      "dashboards": [
+        "Amazon MQ"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-msk-cloud",
+      "name": "Amazon MSK",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "streaming"
+      ],
+      "description": "A dashboard for Amazon MSK, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Kafka` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-msk-cloud.json",
+      "dashboards": [
+        "Amazon MSK Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-network-elb-cloud",
+      "name": "AWS Network Load Balancer",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "networking"
+      ],
+      "description": "A dashboard for AWS Network Load Balancer, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/NetworkELB` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-network-elb-cloud.json",
+      "dashboards": [
+        "AWS NetworkELB"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-opensearch-cloud",
+      "name": "Amazon OpenSearch Service",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "search"
+      ],
+      "description": "A dashboard for Amazon OpenSearch Service, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/ES` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-opensearch-cloud.json",
+      "dashboards": [
+        "AWS OpenSearch Service"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-rds-cloud",
+      "name": "Amazon RDS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "database"
+      ],
+      "description": "Dashboards and alert rules for Amazon RDS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/RDS` namespace in the metric stream, or stream all namespaces.\n3. OS-level metrics need RDS Enhanced Monitoring: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#rds-enhanced-monitoring).\n",
+      "path": "aws-rds-cloud.json",
+      "dashboards": [
+        "AWS RDS (Aurora)",
+        "AWS RDS (MySQL)",
+        "AWS RDS (PostgreSQL)",
+        "AWS RDS"
+      ],
+      "alerts": [
+        "[AWS] RDS Database Connections Anomaly Monitor",
+        "[AWS] RDS CPU Utilization Monitor",
+        "[AWS] RDS Storage Utilization Monitor"
+      ]
+    },
+    {
+      "id": "aws-redshift-cloud",
+      "name": "Amazon Redshift",
+      "collector": "cloud",
+      "tags": [
+        "analytics",
+        "aws",
+        "database"
+      ],
+      "description": "A dashboard for Amazon Redshift, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/Redshift` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-redshift-cloud.json",
+      "dashboards": [
+        "AWS Redshift"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-s3-cloud",
+      "name": "Amazon S3",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "storage"
+      ],
+      "description": "A dashboard for Amazon S3, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/S3` namespace in the metric stream, or stream all namespaces.\n3. Request metrics (GET, PUT, DELETE counts and latency) must be enabled per bucket and are billed by AWS: see [CloudWatch Enablement Reference](https://docs.kloudfuse.com/platform/latest/reference/aws/cloudwatch/#s3-request-metrics).\n",
+      "path": "aws-s3-cloud.json",
+      "dashboards": [
+        "AWS S3"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-sns-cloud",
+      "name": "Amazon SNS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "messaging"
+      ],
+      "description": "A dashboard for Amazon SNS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/SNS` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-sns-cloud.json",
+      "dashboards": [
+        "AWS SNS"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "aws-sqs-cloud",
+      "name": "Amazon SQS",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "messaging"
+      ],
+      "description": "A dashboard and alert rules for Amazon SQS, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/SQS` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-sqs-cloud.json",
+      "dashboards": [
+        "AWS SQS"
+      ],
+      "alerts": [
+        "[AWS] SQS Message Queue Anomaly Monitor",
+        "[AWS] SQS Message Processing Time Monitor"
+      ]
+    },
+    {
+      "id": "aws-waf-cloud",
+      "name": "AWS WAF",
+      "collector": "cloud",
+      "tags": [
+        "aws",
+        "security"
+      ],
+      "description": "A dashboard for AWS WAF, from CloudWatch metrics.",
+      "details": "## Setup\n\n1. Stream CloudWatch metrics to Kloudfuse through Kinesis Firehose: [AWS CloudWatch Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/aws/cloudwatch-metrics/).\n2. Include the `AWS/WAFV2` namespace in the metric stream, or stream all namespaces.\n",
+      "path": "aws-waf-cloud.json",
+      "dashboards": [
+        "AWS WAF"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "azure-aks-cloud",
+      "name": "Azure Kubernetes Service",
+      "collector": "cloud",
+      "tags": [
+        "azure",
+        "kubernetes"
+      ],
+      "description": "A dashboard for Azure Kubernetes Service, from Azure Monitor metrics.",
+      "details": "## Setup\n\n1. Follow [Azure Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/azure-metrics/).\n2. Add `Microsoft.ContainerService/managedClusters` to `resourceTypes`.\n",
+      "path": "azure-aks-cloud.json",
+      "dashboards": [
+        "Azure Kubernetes Service 3"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "azure-event-hubs-cloud",
+      "name": "Azure Event Hubs",
+      "collector": "cloud",
+      "tags": [
+        "azure",
+        "streaming"
+      ],
+      "description": "A dashboard for Azure Event Hubs, from Azure Monitor metrics.",
+      "details": "## Setup\n\n1. Follow [Azure Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/azure-metrics/).\n2. Add `Microsoft.EventHub/Namespaces` to `resourceTypes`.\n",
+      "path": "azure-event-hubs-cloud.json",
+      "dashboards": [
+        "Azure Event Hubs"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "azure-iot-hub-cloud",
+      "name": "Azure IoT Hub",
+      "collector": "cloud",
+      "tags": [
+        "azure",
+        "messaging"
+      ],
+      "description": "A dashboard for Azure IoT Hub, from Azure Monitor metrics.",
+      "details": "## Setup\n\n1. Follow [Azure Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/azure-metrics/).\n2. Add `Microsoft.Devices/IotHubs` to `resourceTypes`.\n",
+      "path": "azure-iot-hub-cloud.json",
+      "dashboards": [
+        "Azure IOT Hub"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "coredns-datadog",
+      "name": "CoreDNS",
+      "collector": "datadog",
+      "tags": [
+        "kubernetes",
+        "networking"
+      ],
+      "description": "CoreDNS request and forwarding latency from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Datadog integrations: Caching](https://docs.kloudfuse.com/platform/latest/reference/datadog/integrations/caching/).\n\nEnable the `coredns` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"coredns\"]'`.\n",
+      "path": "coredns-datadog.json",
+      "dashboards": [
+        "CoreDNS"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "docker-datadog",
+      "name": "Docker",
+      "collector": "datadog",
+      "tags": [
+        "containers"
+      ],
+      "description": "Container CPU, memory and network, with alerts for busy and stopped containers, from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Docker with the Datadog Agent](https://docs.kloudfuse.com/platform/latest/integration/dd-agent/docker/).\n\nEnable the `docker` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"docker\"]'`.\n",
+      "path": "docker-datadog.json",
+      "dashboards": [
+        "Docker - Overview"
+      ],
+      "alerts": [
+        "Some docker containers are using more CPU in the last 5 minutes",
+        "Some docker containers are using more memory in last 5 minutes",
+        "Some docker containers have stopped running"
+      ]
+    },
+    {
+      "id": "elasticsearch-datadog",
+      "name": "Elasticsearch",
+      "collector": "datadog",
+      "tags": [
+        "search"
+      ],
+      "description": "Elasticsearch search, indexing and transport from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Datadog integrations: Data Stores & Search](https://docs.kloudfuse.com/platform/latest/reference/datadog/integrations/data-stores/).\n\nEnable the `elastic` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"elastic\"]'`.\n",
+      "path": "elasticsearch-datadog.json",
+      "dashboards": [
+        "Elasticsearch - Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "gcp-cloud-sql-cloud",
+      "name": "Google Cloud SQL",
+      "collector": "cloud",
+      "tags": [
+        "database",
+        "gcp"
+      ],
+      "description": "A dashboard for Google Cloud SQL, from Cloud Monitoring metrics.",
+      "details": "## Setup\n\n1. Follow [GCP Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/gcp-metrics/).\n2. Add `cloudsql.googleapis.com` to `typePrefixes`.\n",
+      "path": "gcp-cloud-sql-cloud.json",
+      "dashboards": [
+        "Google Cloud SQL"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "gcp-compute-engine-cloud",
+      "name": "Google Compute Engine",
+      "collector": "cloud",
+      "tags": [
+        "compute",
+        "gcp"
+      ],
+      "description": "A dashboard for Google Compute Engine, from Cloud Monitoring metrics.",
+      "details": "## Setup\n\n1. Follow [GCP Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/gcp-metrics/).\n2. Add `compute.googleapis.com` to `typePrefixes`.\n",
+      "path": "gcp-compute-engine-cloud.json",
+      "dashboards": [
+        "Google Compute Engine"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "gcp-gke-cloud",
+      "name": "Google Kubernetes Engine",
+      "collector": "cloud",
+      "tags": [
+        "gcp",
+        "kubernetes"
+      ],
+      "description": "A dashboard for Google Kubernetes Engine, from Cloud Monitoring metrics.",
+      "details": "## Setup\n\n1. Follow [GCP Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/gcp-metrics/).\n2. Add `kubernetes.io/`, `prometheus.googleapis.com` and `compute.googleapis.com` to `typePrefixes`.\n3. The API server and scheduler panels read GKE control plane metrics (`prometheus.googleapis.com`), which must be enabled on the cluster.\n",
+      "path": "gcp-gke-cloud.json",
+      "dashboards": [
+        "GKE Standard Dashboard"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "gcp-memorystore-cloud",
+      "name": "Memorystore for Redis",
+      "collector": "cloud",
+      "tags": [
+        "cache",
+        "gcp"
+      ],
+      "description": "A dashboard for Memorystore for Redis, from Cloud Monitoring metrics.",
+      "details": "## Setup\n\n1. Follow [GCP Metrics Integration](https://docs.kloudfuse.com/platform/latest/integration/kloudfuse/gcp-metrics/).\n2. Add `redis.googleapis.com` to `typePrefixes`.\n",
+      "path": "gcp-memorystore-cloud.json",
+      "dashboards": [
+        "GCP MemoryStore (Redis)"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "kafka-datadog",
+      "name": "Kafka",
+      "collector": "datadog",
+      "tags": [
+        "streaming"
+      ],
+      "description": "Kafka broker, request and consumer metrics from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Datadog integrations: Message Queues & Streaming](https://docs.kloudfuse.com/platform/latest/reference/datadog/integrations/message-queues/).\n\nEnable the `kafka` and `kafka_consumer` checks on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"kafka\", \"kafka_consumer\"]'`.\n\nThe broker check reads JMX, so the agent needs JMX access to the brokers.\n",
+      "path": "kafka-datadog.json",
+      "dashboards": [
+        "Kafka - Overview",
+        "Kafka"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "kubernetes-datadog",
+      "name": "Kubernetes",
+      "collector": "datadog",
+      "tags": [
+        "host",
+        "kubernetes"
+      ],
+      "description": "Cluster, node and job dashboards with pod, workload and node alerts, from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Kubernetes with the Datadog Agent](https://docs.kloudfuse.com/platform/latest/integration/dd-agent/kubernetes/).\n\nNode and workload metrics come from the agent's built-in Kubernetes checks once it runs as a DaemonSet with the Cluster Agent; no annotations are needed.\n",
+      "path": "kubernetes-datadog.json",
+      "dashboards": [
+        "Kubernetes Cluster Overview Dashboard",
+        "Kubernetes Jobs and CronJobs Overview",
+        "Kubernetes Nodes Overview",
+        "Kubernetes - Overview"
+      ],
+      "alerts": [
+        "Some nodes are not in ready condition for last 5 minutes",
+        "Some nodes have consistent high CPU usage for last 5 minutes",
+        "Host disk device has > 90% usage for last 5 minutes",
+        "More than 20% of nodes are unschedulable for last 15 minutes",
+        "Some K8S deployment(s) have lesser replicas available than desired for last 15 minutes",
+        "Some K8S pods are restarting for last 5 minutes",
+        "Some K8S pods are in crashloopbackoff for last 10 minutes",
+        "Some K8S pods are in failed state for last 5 minutes",
+        "Some pods are experiencing imagepullbackoff for last 10 minutes",
+        "Some K8S pods are using more CPU in the last 5 minutes",
+        "Some K8S pods are using more memory in last 5 minutes",
+        "Some K8S statefulset(s) have lesser replicas ready than desired for last 15 minutes"
+      ]
+    },
+    {
+      "id": "kubernetes-otel",
+      "name": "Kubernetes",
+      "collector": "otel",
+      "tags": [
+        "kubernetes"
+      ],
+      "description": "Cluster, node and job dashboards with pod and workload alerts, from the OpenTelemetry collector.",
+      "details": "## Setup\n\nCollected by the OpenTelemetry Collector. See [Kubernetes with the OpenTelemetry Collector](https://docs.kloudfuse.com/platform/latest/integration/otel/kubernetes/).\n\nRun the collector as a DaemonSet with the Kubernetes and system-level metrics receivers enabled.\n",
+      "path": "kubernetes-otel.json",
+      "dashboards": [
+        "Kubernetes Cluster Overview Dashboard - OTel",
+        "Kubernetes Jobs and CronJobs Overview - OTel",
+        "Kubernetes Nodes Overview - OTel",
+        "Kubernetes - Overview (OTel)"
+      ],
+      "alerts": [
+        "Some K8S deployment(s) have lesser replicas available than desired for last 15 minutes - OTel",
+        "Some K8S pods are restarting for last 5 minutes - OTel",
+        "Some K8S pods are in failed state for last 5 minutes - OTel",
+        "Some K8S pods are using more CPU in the last 5 minutes - OTel",
+        "Some K8S pods are using more Memory in last 5 minutes - OTel",
+        "Some K8S statefulset(s) have lesser replicas ready than desired for last 15 minutes - OTel"
+      ]
+    },
+    {
+      "id": "mongodb-datadog",
+      "name": "MongoDB",
+      "collector": "datadog",
+      "tags": [
+        "database"
+      ],
+      "description": "MongoDB Community replica-set health and operation counters from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [MongoDB Integration](https://docs.kloudfuse.com/platform/latest/integration/dd-agent/mongodb/).\n\nEnable the `mongo` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"mongo\"]'`.\n",
+      "path": "mongodb-datadog.json",
+      "dashboards": [
+        "MongoDB Community- Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "mysql-datadog",
+      "name": "MySQL",
+      "collector": "datadog",
+      "tags": [
+        "database"
+      ],
+      "description": "MySQL overview from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Datadog integrations: Data Stores & Search](https://docs.kloudfuse.com/platform/latest/reference/datadog/integrations/data-stores/).\n\nEnable the `mysql` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"mysql\"]'`.\n",
+      "path": "mysql-datadog.json",
+      "dashboards": [
+        "MySQL - Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "postgres-datadog",
+      "name": "Postgres",
+      "collector": "datadog",
+      "tags": [
+        "database"
+      ],
+      "description": "Postgres row, index and connection metrics from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [PostgreSQL Integration](https://docs.kloudfuse.com/platform/latest/integration/dd-agent/postgresql/).\n\nEnable the `postgres` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"postgres\"]'`.\n",
+      "path": "postgres-datadog.json",
+      "dashboards": [
+        "Postgres - Metrics",
+        "Postgres - Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "redis-datadog",
+      "name": "Redis",
+      "collector": "datadog",
+      "tags": [
+        "cache"
+      ],
+      "description": "Redis keyspace, latency and connection metrics from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Datadog integrations: Data Stores & Search](https://docs.kloudfuse.com/platform/latest/reference/datadog/integrations/data-stores/).\n\nEnable the `redisdb` check on the pods to monitor with an Autodiscovery annotation such as `ad.datadoghq.com/<container>.check_names: '[\"redisdb\"]'`.\n",
+      "path": "redis-datadog.json",
+      "dashboards": [
+        "Redis - Overview"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "system-datadog",
+      "name": "System",
+      "collector": "datadog",
+      "tags": [
+        "host"
+      ],
+      "description": "Host CPU, memory, disk I/O and networking from the Datadog agent.",
+      "details": "## Setup\n\nCollected by the Datadog agent. See [Hosts with the Datadog Agent](https://docs.kloudfuse.com/platform/latest/integration/dd-agent/hosts/).\n\nCPU, memory, disk and network metrics come from the agent's built-in system checks; no extra configuration is needed.\n",
+      "path": "system-datadog.json",
+      "dashboards": [
+        "System - Disk I/O",
+        "System - Metrics",
+        "System - Networking"
+      ],
+      "alerts": []
+    },
+    {
+      "id": "system-otel",
+      "name": "System",
+      "collector": "otel",
+      "tags": [
+        "host"
+      ],
+      "description": "Host CPU, memory, disk I/O and networking from the OpenTelemetry host metrics receiver.",
+      "details": "## Setup\n\nCollected by the OpenTelemetry Collector. See [Hosts with the OpenTelemetry Collector](https://docs.kloudfuse.com/platform/latest/integration/otel/hosts/).\n\nEnable the collector's host metrics receiver.\n",
+      "path": "system-otel.json",
+      "dashboards": [
+        "System - Disk I/O (OTel)",
+        "System - Metrics (OTel)",
+        "System - Networking (OTeL)"
+      ],
+      "alerts": []
+    }
+  ]
+}

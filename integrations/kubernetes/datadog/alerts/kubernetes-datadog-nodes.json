@@ -1,0 +1,512 @@
+{
+  "name": "kubernetes-datadog-nodes",
+  "interval": "1m",
+  "rules": [
+    {
+      "title": "Some nodes are not in ready condition for last 5 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "default_zero(sum by (kube_cluster_name, node, condition)(kubernetes_state_node_by_condition{status=\"false\",condition=~\"Ready|ready\"}))",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "{{ $labels.kube_cluster_name }}: Physical node {{ $labels.host }} are experiencing a unusual ({{ $labels.condition }}) condition.",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Some nodes are not in ready condition for last 5 minutes"
+      },
+      "labels": {}
+    },
+    {
+      "title": "Some nodes have consistent high CPU usage for last 5 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "100 - ( avg by (kube_cluster_name, host)(system_cpu_idle{}) )",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "98"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "98"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B >= 99",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "{{ $labels.kube_cluster_name }}: Node {{ $labels.host }} is experiencing high CPU usage.",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Some nodes have consistent high CPU usage for last 5 minutes"
+      },
+      "labels": {}
+    },
+    {
+      "title": "Host disk device has > 90% usage for last 5 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "editorMode": "code",
+            "expr": "avg by(kube_cluster_name,device,host)(system_disk_used{device=~\"/dev/.+\"}) / avg by(kube_cluster_name,device,host)(system_disk_total{device=~\"/dev/.+\"})",
+            "hide": false,
+            "instant": false,
+            "intervalMs": 15000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0.9"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "A"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "type": "__expr__",
+              "uid": "-100"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0.9"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "A"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0.9",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "{{ $labels.kube_cluster_name }}, {{ $labels.host }}: device {{ $labels.device }} is running at high usage",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Host disk device has > 90% usage for last 5 minutes"
+      },
+      "labels": {}
+    },
+    {
+      "title": "More than 20% of nodes are unschedulable for last 15 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "editorMode": "code",
+            "expr": "sum by(kube_cluster_name)(kubernetes_state_node_status{status=\"schedulable\"})*100/sum by(kube_cluster_name)(kubernetes_state_node_status{})",
+            "hide": false,
+            "instant": false,
+            "interval": "15s",
+            "intervalMs": 15000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "80"
+                  ],
+                  "type": "lt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "A"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "type": "__expr__",
+              "uid": "-100"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "max",
+            "refId": "B",
+            "settings": {
+              "mode": ""
+            },
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "80"
+                  ],
+                  "type": "lt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": [
+                    "A"
+                  ]
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "last"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B < 80",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "{{ $labels.kube_cluster_name }} has unschedulable nodes",
+        "forWindow": "15m",
+        "ruleType": "metrics",
+        "summary": "More than 20% of nodes are unschedulable for last 5 minutes"
+      },
+      "labels": {}
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "name": "docker-datadog",
+  "interval": "1m",
+  "rules": [
+    {
+      "title": "Some docker containers are using more CPU in the last 5 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "P09C4D52DEC9B98E6"
+            },
+            "expr": "avg by (host, container_name)(docker_cpu_usage) - avg by (host, container_name)(docker_cpu_usage offset 1h)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    ".20"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    ".20"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > .20",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "change",
+        "description": "{{ $labels.host }}: {{ $labels.container_name }} is using more CPU in last 5 minutes",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Some docker containers are using more CPU in the last 5 minutes"
+      },
+      "labels": {}
+    },
+    {
+      "title": "Some docker containers are using more memory in last 5 minutes",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "P09C4D52DEC9B98E6"
+            },
+            "expr": "(avg by (host, container_name)(docker_mem_rss offset 5m) - avg by (host, container_name)(docker_mem_rss)) / avg by (host, container_name)(docker_mem_rss offset 5m)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    ".50"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    ".50"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > .50",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "change",
+        "description": "{{ $labels.host }}: {{ $labels.container_name }} is using more memory in last 5 minutes",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Some docker containers are using more memory in last 5 minutes"
+      },
+      "labels": {}
+    },
+    {
+      "title": "Some docker containers have stopped running",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus",
+              "uid": "P09C4D52DEC9B98E6"
+            },
+            "expr": "sum by (host, docker_image)(docker_containers_stopped)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 300,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "min",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "0"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "min"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "{{ $labels.host }}: {{ $labels.docker_image }} have stopped running",
+        "forWindow": "5m",
+        "ruleType": "metrics",
+        "summary": "Some docker containers have stopped running"
+      },
+      "labels": {}
+    }
+  ]
+}

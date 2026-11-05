@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Azure Event Hubs",
+  "summary": "A dashboard for Azure Event Hubs, from Azure Monitor metrics.",
+  "collector": "cloud",
+  "tags": [
+    "azure",
+    "streaming"
+  ]
+}

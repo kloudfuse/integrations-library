@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon DynamoDB",
+  "summary": "A dashboard for Amazon DynamoDB, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "database"
+  ]
+}

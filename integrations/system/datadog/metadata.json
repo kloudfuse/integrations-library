@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "System",
+  "summary": "Host CPU, memory, disk I/O and networking from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "host"
+  ]
+}

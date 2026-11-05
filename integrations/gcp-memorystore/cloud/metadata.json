@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Memorystore for Redis",
+  "summary": "A dashboard for Memorystore for Redis, from Cloud Monitoring metrics.",
+  "collector": "cloud",
+  "tags": [
+    "cache",
+    "gcp"
+  ]
+}

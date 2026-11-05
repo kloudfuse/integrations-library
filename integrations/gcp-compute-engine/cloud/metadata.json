@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Google Compute Engine",
+  "summary": "A dashboard for Google Compute Engine, from Cloud Monitoring metrics.",
+  "collector": "cloud",
+  "tags": [
+    "compute",
+    "gcp"
+  ]
+}

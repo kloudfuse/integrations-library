@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "System",
+  "summary": "Host CPU, memory, disk I/O and networking from the OpenTelemetry host metrics receiver.",
+  "collector": "otel",
+  "tags": [
+    "host"
+  ]
+}

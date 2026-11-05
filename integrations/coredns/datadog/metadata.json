@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "CoreDNS",
+  "summary": "CoreDNS request and forwarding latency from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "kubernetes",
+    "networking"
+  ]
+}

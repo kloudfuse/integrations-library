@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon RDS",
+  "summary": "Dashboards and alert rules for Amazon RDS, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "database"
+  ]
+}

@@ -1,0 +1,502 @@
+{
+  "name": "aws-lambda-cloud",
+  "interval": "1m",
+  "rules": [
+    {
+      "title": "[AWS] Lambda High Error Rate",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "( sum by (functionname, region, aws_account)(sum_over_time(aws_lambda_errors [2m])) ) / ( sum by (functionname, region, aws_account)(sum_over_time(aws_lambda_invocations [2m])) )",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.1
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.1
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0.1",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "More than 10% of the function’s invocations were errors in the selected time range on {{ $labels.functionname }} in {{ $labels.region }} for {{ $labels.aws_account }}",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] Lambda High Iterator Rate ",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "min by (aws_account, region, functionname)(aws_lambda_iterator_age_maximum)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    86400
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "mean",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    86400
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "mean"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 86400",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "The function’s iterator was older than 24 hours on {{ $labels.functionname }} in {{ $labels.region }} for {{ $labels.aws_account }}. Iterator age measures the age of the last record for each batch of records processed from a stream. When this value increases, it means your function cannot process data fast enough. Enable distributed tracing to isolate why your function has so much data being streamed to it. You can also consider increasing the shard count and batch size of the stream your function reads from.",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] Lambda High Throttles",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "( sum by (aws_account, region, functionname)(sum_over_time(aws_lambda_throttles [2m])) ) / (( sum by (aws_account, region, functionname)(sum_over_time(aws_lambda_throttles [2m])) ) + ( sum by (aws_account, region, functionname)(sum_over_time(aws_lambda_invocations{aws_cloudformation_stack_id=~\".*\"} [2m])) ))",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.2
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    0.2
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 0.2",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "More than 10% of invocations in the selected time range were throttled  on {{ $labels.functionname }} in {{ $labels.region }} for {{ $labels.aws_account }}. Throttling occurs when your serverless Lambda applications receive high levels of traffic without adequate concurrency.",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] Lambda Timeout",
+      "condition": "C",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "( sum by (aws_account, functionname, region)(sum_over_time(aws_lambda_timeout [2m])) ) / (( sum by (aws_account, functionname, region)(sum_over_time(aws_lambda_duration_maximum [2m])) ) * 1000)",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    1
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    1
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B > 1",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "C",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "threshold",
+        "description": "At least one invocation in the selected time range timed out  on {{ $labels.functionname }} in {{ $labels.region }} for {{ $labels.aws_account }}. This occurs when your function runs for longer than the configured timeout or the global Lambda timeout.",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    }
+  ]
+}

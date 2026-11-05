@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon S3",
+  "summary": "A dashboard for Amazon S3, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "storage"
+  ]
+}

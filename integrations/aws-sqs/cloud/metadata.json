@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon SQS",
+  "summary": "A dashboard and alert rules for Amazon SQS, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "messaging"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon SNS",
+  "summary": "A dashboard for Amazon SNS, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "messaging"
+  ]
+}

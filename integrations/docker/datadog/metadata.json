@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Docker",
+  "summary": "Container CPU, memory and network, with alerts for busy and stopped containers, from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "containers"
+  ]
+}

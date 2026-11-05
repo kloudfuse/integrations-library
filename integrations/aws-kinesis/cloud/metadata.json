@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon Kinesis Data Streams",
+  "summary": "A dashboard for Amazon Kinesis Data Streams, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "streaming"
+  ]
+}

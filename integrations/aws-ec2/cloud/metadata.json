@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon EC2",
+  "summary": "A dashboard and alert rules for Amazon EC2, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "compute"
+  ]
+}

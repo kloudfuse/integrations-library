@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon OpenSearch Service",
+  "summary": "A dashboard for Amazon OpenSearch Service, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "search"
+  ]
+}

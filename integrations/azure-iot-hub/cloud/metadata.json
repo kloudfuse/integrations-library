@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Azure IoT Hub",
+  "summary": "A dashboard for Azure IoT Hub, from Azure Monitor metrics.",
+  "collector": "cloud",
+  "tags": [
+    "azure",
+    "messaging"
+  ]
+}

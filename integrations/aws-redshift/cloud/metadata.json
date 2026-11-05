@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon Redshift",
+  "summary": "A dashboard for Amazon Redshift, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "analytics",
+    "aws",
+    "database"
+  ]
+}

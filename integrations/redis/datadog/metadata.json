@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Redis",
+  "summary": "Redis keyspace, latency and connection metrics from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "cache"
+  ]
+}

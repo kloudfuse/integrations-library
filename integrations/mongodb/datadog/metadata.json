@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "MongoDB",
+  "summary": "MongoDB Community replica-set health and operation counters from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "database"
+  ]
+}

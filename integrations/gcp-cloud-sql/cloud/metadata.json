@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Google Cloud SQL",
+  "summary": "A dashboard for Google Cloud SQL, from Cloud Monitoring metrics.",
+  "collector": "cloud",
+  "tags": [
+    "database",
+    "gcp"
+  ]
+}

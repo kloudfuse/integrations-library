@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon EFS",
+  "summary": "A dashboard for Amazon EFS, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "storage"
+  ]
+}

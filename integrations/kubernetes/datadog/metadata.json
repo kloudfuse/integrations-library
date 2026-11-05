@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Kubernetes",
+  "summary": "Cluster, node and job dashboards with pod, workload and node alerts, from the Datadog agent.",
+  "collector": "datadog",
+  "tags": [
+    "host",
+    "kubernetes"
+  ]
+}

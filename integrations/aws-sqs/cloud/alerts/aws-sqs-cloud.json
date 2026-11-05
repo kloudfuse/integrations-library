@@ -1,0 +1,344 @@
+{
+  "name": "aws-sqs-cloud",
+  "interval": "1m",
+  "rules": [
+    {
+      "title": "[AWS] SQS Message Queue Anomaly Monitor",
+      "condition": "D",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "(avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) - avg_over_time((quantile_over_time(0.84, avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]) \n  + 2 * stddev_over_time(avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]))[1m:])) > bool 0 or (avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) - avg_over_time((quantile_over_time(0.16, avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]) \n  - 2 * stddev_over_time(avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]))[1m:])) < bool 0",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "count",
+            "refId": "C",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B/$C * 100 > 99",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "D",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "D",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "15m",
+      "annotations": {
+        "alertType": "anomaly",
+        "description": "The number of visible messages in {{ $labels.queuename }} is outside of the typical range.",
+        "extraData": "{}",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    },
+    {
+      "title": "[AWS] SQS Message Processing Time Monitor",
+      "condition": "D",
+      "data": [
+        {
+          "datasourceUid": "P09C4D52DEC9B98E6",
+          "model": {
+            "datasource": {
+              "type": "prometheus"
+            },
+            "expr": "(avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) - avg_over_time((quantile_over_time(0.84, avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]) \n  + 2 * stddev_over_time(avg by (queuename, region)(aws_sqs_approximate_age_of_oldest_message) [1m:]))[1m:])) > bool 0",
+            "hide": false,
+            "interval": "20s",
+            "intervalMs": 20000,
+            "maxDataPoints": 43200,
+            "range": true,
+            "refId": "A"
+          },
+          "queryType": "",
+          "refId": "A",
+          "relativeTimeRange": {
+            "from": 900,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "sum",
+            "refId": "B",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "B",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "A",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "reducer": "count",
+            "refId": "C",
+            "type": "reduce"
+          },
+          "queryType": "",
+          "refId": "C",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        },
+        {
+          "datasourceUid": "-100",
+          "model": {
+            "conditions": [
+              {
+                "evaluator": {
+                  "params": [
+                    "99"
+                  ],
+                  "type": "gt"
+                },
+                "operator": {
+                  "type": "and"
+                },
+                "query": {
+                  "params": []
+                },
+                "reducer": {
+                  "params": [],
+                  "type": "sum"
+                },
+                "type": "query"
+              }
+            ],
+            "datasource": {
+              "name": "Expression",
+              "type": "__expr__",
+              "uid": "__expr__"
+            },
+            "expression": "$B/$C * 100 > 99",
+            "hide": false,
+            "intervalMs": 1000,
+            "maxDataPoints": 43200,
+            "refId": "D",
+            "type": "math"
+          },
+          "queryType": "",
+          "refId": "D",
+          "relativeTimeRange": {
+            "from": 0,
+            "to": 0
+          }
+        }
+      ],
+      "noDataState": "OK",
+      "execErrState": "KeepLast",
+      "for": "0s",
+      "annotations": {
+        "alertType": "anomaly",
+        "description": "The approximate age of the oldest message in {{ $labels.queuename }} is outside of the typical range.",
+        "extraData": "{}",
+        "forWindow": "15m",
+        "ruleType": "metrics"
+      },
+      "labels": {}
+    }
+  ]
+}

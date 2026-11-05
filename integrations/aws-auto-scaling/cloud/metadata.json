@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "AWS Auto Scaling",
+  "summary": "A dashboard for AWS Auto Scaling, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "compute"
+  ]
+}

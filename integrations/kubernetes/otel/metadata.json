@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "name": "Kubernetes",
+  "summary": "Cluster, node and job dashboards with pod and workload alerts, from the OpenTelemetry collector.",
+  "collector": "otel",
+  "tags": [
+    "kubernetes"
+  ]
+}

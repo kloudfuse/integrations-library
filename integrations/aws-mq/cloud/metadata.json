@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "name": "Amazon MQ",
+  "summary": "A dashboard for Amazon MQ, from CloudWatch metrics.",
+  "collector": "cloud",
+  "tags": [
+    "aws",
+    "messaging"
+  ]
+}

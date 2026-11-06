@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -41,7 +31,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -55,7 +45,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -68,7 +58,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -132,7 +122,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(max(postgresql_percent_usage_connections{})*100)",
           "refId": "A"
@@ -149,7 +139,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 1,
       "editable": true,
@@ -213,7 +203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(postgresql_rows_fetched{})",
           "hide": true,
@@ -222,7 +212,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(postgresql_rows_fetched{})/(sum(postgresql_rows_fetched{})+sum(postgresql_rows_returned{}))*100)",
           "refId": "B"
@@ -230,7 +220,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(postgresql_rows_returned{})",
           "hide": true,
@@ -247,7 +237,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -261,7 +251,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -272,7 +262,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -355,7 +345,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(postgresql_dead_rows{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"})",
@@ -370,7 +360,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -439,7 +429,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(table)(last_over_time(postgresql_dead_rows{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -450,7 +440,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(table)(last_over_time(postgresql_index_scans{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -461,7 +451,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(table)(last_over_time(postgresql_live_rows{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -472,7 +462,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(table)(last_over_time(postgresql_total_size{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -488,7 +478,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -571,7 +561,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(postgresql_temp_bytes{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"})",
           "legendFormat": "Temp bytes",
@@ -584,7 +574,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:postgresql.index_scans{$scope,$db} by {index}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -653,7 +643,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((5),(avg by(index)(avg_over_time(postgresql_index_scans{scope=~\"$scope\",db=~\"$db\"}[10m]))))",
           "format": "table",
@@ -669,7 +659,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:postgresql.index_scans{$scope,$db} by {index}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -738,7 +728,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(avg by(index)(avg_over_time(postgresql_index_scans{scope=~\"$scope\",db=~\"$db\"}[10m]))))",
           "format": "table",
@@ -754,7 +744,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:postgresql.total_size{$scope,$table} by {table}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -823,7 +813,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((5),(avg by(table)(avg_over_time(postgresql_total_size{scope=~\"$scope\",table=~\"$table\"}[10m]))))",
           "format": "table",
@@ -839,7 +829,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:postgresql.live_rows{$scope,$table} by {table}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -908,7 +898,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((5),(avg by(table)(avg_over_time(postgresql_live_rows{scope=~\"$scope\",table=~\"$table\"}[10m]))))",
           "format": "table",
@@ -925,7 +915,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -939,7 +929,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -950,7 +940,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:postgresql.locks{$scope} by {lock_mode,table}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1033,7 +1023,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(lock_mode,table)(postgresql_locks{scope=~\"$scope\"})",
           "hide": true,
@@ -1042,7 +1032,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((5),(sum by(lock_mode,table)(avg_over_time(postgresql_locks{scope=~\"$scope\"}[10m]))))",
           "legendFormat": "Lock Count",
@@ -1055,7 +1045,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:postgresql.locks{$scope} by {lock_mode,table}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1124,7 +1114,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((10),(sum by(lock_mode,table)(avg_over_time(postgresql_locks{scope=~\"$scope\"}[10m]))))",
           "format": "table",
@@ -1140,7 +1130,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1222,7 +1212,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(postgresql_deadlocks{scope=~\"$scope\"})",
           "legendFormat": "Deadlocks",
@@ -1236,7 +1226,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1250,7 +1240,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1261,7 +1251,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1343,7 +1333,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_rows_inserted{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Inserted Rows",
@@ -1356,7 +1346,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1438,7 +1428,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_rows_updated{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Updated Rows",
@@ -1451,7 +1441,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1519,7 +1509,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(last_over_time(postgresql_rows_deleted{db=~\"$db\",scope=~\"$scope\"}[10m]))",
           "format": "table",
@@ -1530,7 +1520,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(last_over_time(postgresql_rows_inserted{db=~\"$db\",scope=~\"$scope\"}[10m]))",
           "format": "table",
@@ -1541,7 +1531,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(last_over_time(postgresql_rows_updated{db=~\"$db\",scope=~\"$scope\"}[10m]))",
           "format": "table",
@@ -1557,7 +1547,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1639,7 +1629,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_rows_deleted{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Deleted Rows",
@@ -1652,7 +1642,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1734,7 +1724,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_rows_hot_updated{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Hot updated rows",
@@ -1748,7 +1738,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1762,7 +1752,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1773,7 +1763,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1855,7 +1845,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "min by(db)(postgresql_max_connections{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Max connections allowed",
@@ -1868,7 +1858,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(max:postgresql.connections{$scope,$db} by {db}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1937,7 +1927,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((10),(max by(db)(avg_over_time(postgresql_connections{scope=~\"$scope\",db=~\"$db\"}[10m]))))",
           "format": "table",
@@ -1953,7 +1943,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1982,7 +1972,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1994,7 +1984,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2008,7 +1998,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2019,7 +2009,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2101,7 +2091,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_index_scans{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Index Scans",
@@ -2110,7 +2100,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(postgresql_seq_scans{scope=~\"$scope\",db=~\"$db\"})",
           "legendFormat": "Sequential Scans",
@@ -2123,7 +2113,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2191,7 +2181,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(last_over_time(postgresql_index_scans{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -2202,7 +2192,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(db)(last_over_time(postgresql_seq_scans{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))",
           "format": "table",
@@ -2218,7 +2208,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2300,7 +2290,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(postgresql_seq_scans{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"})",
           "hide": true,
@@ -2314,7 +2304,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:postgresql.function.calls{$scope,$db,$table} by {function}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2383,7 +2373,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((10),(avg by(function)(avg_over_time(postgresql_function_calls{scope=~\"$scope\",db=~\"$db\",table=~\"$table\"}[10m]))))",
           "format": "table",
@@ -2400,7 +2390,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2414,7 +2404,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2425,7 +2415,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: count_nonzero(sum:postgresql.replication_delay_bytes{$scope,$host} by {host})\ncount_nonzero is converted to count aggregate with != 0 condition",
       "editable": false,
@@ -2508,7 +2498,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum by(host)(postgresql_replication_delay_bytes{scope=~\"$scope\",host=~\"$host\"})) != 0",
           "legendFormat": "Hosts with replication delay",
@@ -2517,7 +2507,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(host)(postgresql_replication_delay_bytes{scope=~\"$scope\",host=~\"$host\"})",
           "hide": true,
@@ -2530,7 +2520,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(max:postgresql.replication_delay{$scope,$host} by {host}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2599,7 +2589,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((10),(max by(host)(avg_over_time(postgresql_replication_delay{scope=~\"$scope\",host=~\"$host\"}[10m]))))",
           "format": "table",
@@ -2616,7 +2606,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2630,7 +2620,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2641,7 +2631,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2723,7 +2713,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(postgresql_bgwriter_checkpoints_requested{scope=~\"$scope\",db=~\"$db\"}[2m:]))",
           "legendFormat": "Requested checkpoints performed",

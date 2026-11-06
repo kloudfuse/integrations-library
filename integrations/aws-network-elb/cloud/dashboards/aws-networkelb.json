@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -47,7 +37,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -143,7 +133,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(last_over_time(aws_networkelb_healthy_host_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\",availabilityzone=~\".+\"}[30m]))",
@@ -162,7 +152,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -258,7 +248,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(last_over_time(aws_networkelb_un_healthy_host_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"}[30m]))",
@@ -276,7 +266,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(max:aws.networkelb.un_healthy_host_count{$scope,$name,$targetgroup,$loadbalancer} by {loadbalancer}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -367,7 +357,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "topk((10),(max by(loadbalancer)(avg_over_time(aws_networkelb_un_healthy_host_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"}[10m]))))",
           "format": "table",
@@ -394,7 +384,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -478,7 +468,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(loadbalancer)(aws_networkelb_active_flow_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"})",
           "refId": "A"
@@ -490,7 +480,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -574,7 +564,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(loadbalancer)(sum_over_time(aws_networkelb_new_flow_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"}[2m:]))",
           "refId": "A"
@@ -586,7 +576,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -670,7 +660,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(loadbalancer)(rate(aws_networkelb_processed_bytes{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"}[2m:]))",
           "refId": "A"
@@ -693,7 +683,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -777,7 +767,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(loadbalancer)(sum_over_time(aws_networkelb_tcpelbreset_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"}[2m:]))",
           "refId": "A"
@@ -789,7 +779,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -873,7 +863,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(host)(aws_networkelb_tcptarget_reset_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"})",
           "refId": "A"
@@ -885,7 +875,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -969,7 +959,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(host)(aws_networkelb_tcpclient_reset_count{name=~\"${name}\",targetgroup=~\"${targetgroup}\",loadbalancer=~\"${loadbalancer}\"})",
           "refId": "A"

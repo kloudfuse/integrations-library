@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -48,7 +38,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -113,7 +103,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "(azure_devices_iothubs_devices_totaldevices{region=~\"${region}\"})\n",
@@ -132,7 +122,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -197,7 +187,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "((azure_devices_iothubs_devices_totaldevices{region=~\"${region}\"})-(azure_devices_iothubs_devices_connecteddevices_allprotocol{region=~\"${region}\"}))",
@@ -228,7 +218,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -312,7 +302,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_d2c_twin_read_success{region=~\"${region}\"})",
           "refId": "A"
@@ -324,7 +314,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -408,7 +398,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_twin_update_success{region=~\"${region}\"})",
           "hide": true,
@@ -417,7 +407,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(azure_devices_iothubs_c2d_twin_update_success{region=~\"${region}\"})*10)",
           "refId": "B"
@@ -429,7 +419,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -513,7 +503,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_twin_read_failure{region=~\"${region}\"}[5m]))",
           "hide": true,
@@ -522,7 +512,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(sum_over_time(azure_devices_iothubs_d2c_twin_read_failure{region=~\"${region}\"}[5m]))*0.1)",
           "refId": "B"
@@ -534,7 +524,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -618,7 +608,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_twin_update_failure{region=~\"${region}\"}[5m]))",
           "hide": true,
@@ -627,7 +617,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(sum_over_time(azure_devices_iothubs_d2c_twin_update_failure{region=~\"${region}\"}[5m]))*0.1)",
           "refId": "B"
@@ -650,7 +640,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -734,7 +724,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_twin_read_success{region=~\"${region}\"})",
           "refId": "A"
@@ -746,7 +736,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -830,7 +820,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_twin_read_failure{region=~\"${region}\"})",
           "refId": "A"
@@ -842,7 +832,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -926,7 +916,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_twin_update_success{region=~\"${region}\"}[5m]))",
           "refId": "A"
@@ -938,7 +928,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1022,7 +1012,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_c2d_twin_update_failure{region=~\"${region}\"}[5m]))",
           "hide": true,
@@ -1031,7 +1021,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(sum_over_time(azure_devices_iothubs_c2d_twin_update_failure{region=~\"${region}\"}[5m]))*0.1)",
           "refId": "B"
@@ -1054,7 +1044,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1138,7 +1128,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_ingress_success{region=~\"${region}\"}[5m]))",
           "refId": "A"
@@ -1150,7 +1140,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1234,7 +1224,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_d2c_telemetry_egress_success{region=~\"${region}\"})",
           "refId": "A"
@@ -1242,7 +1232,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_egress_fallback{region=~\"${region}\"}[5m]))",
           "refId": "B"
@@ -1254,7 +1244,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1338,7 +1328,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "((sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_ingress_allprotocol{region=~\"${region}\"}[5m]))-sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_ingress_success{region=~\"${region}\"}[5m])))*0.1)",
@@ -1348,7 +1338,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_ingress_all_protocol{region=~\"${region}\"}[5m]))",
           "hide": true,
@@ -1357,7 +1347,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(sum_over_time(azure_devices_iothubs_d2c_telemetry_ingress_success{region=~\"${region}\"}[5m]))",
           "hide": true,
@@ -1370,7 +1360,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1454,7 +1444,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_d2c_telemetry_egress_dropped{region=~\"${region}\"})",
           "refId": "A"
@@ -1462,7 +1452,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_d2c_telemetry_egress_invalid{region=~\"${region}\"})",
           "refId": "B"
@@ -1487,7 +1477,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1571,7 +1561,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_commands_egress_complete_success{region=~\"${region}\"})",
           "refId": "A"
@@ -1583,7 +1573,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1667,7 +1657,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_commands_egress_reject_success{region=~\"${region}\"})",
           "refId": "A"
@@ -1679,7 +1669,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1763,7 +1753,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(azure_devices_iothubs_c2d_commands_egress_abandon_success{region=~\"${region}\"})",
           "refId": "A"

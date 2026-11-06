@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -35,7 +25,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -49,7 +39,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -62,7 +52,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -125,7 +115,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "disableTextWrap": false,
           "editorMode": "code",
@@ -146,7 +136,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -178,7 +168,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instance_type)(last_over_time(aws_ec2_host_ok{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))",
@@ -194,7 +184,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: cutoff_min(top(max:aws.ec2.status_check_failed{$instanceid,$instance_type,$image_id,$autoscaling_group,$region,$scope,$service,$host} by {host}, 500, 'mean', 'desc'), 0.9)\ncutoff_min is converted to > \ntop is converted to topk",
       "editable": false,
@@ -314,7 +304,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "(topk((500),(max by(host)(avg_over_time(aws_ec2_status_check_failed{instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"}[10m])))))",
@@ -326,7 +316,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "max by(host)(last_over_time(aws_ec2_status_check_failed{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"}[10m]))",
           "format": "table",
@@ -343,7 +333,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -451,7 +441,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(aws_ec2_status_check_failed{instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"})",
@@ -466,7 +456,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -480,7 +470,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -491,7 +481,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -575,7 +565,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(host)(system_mem_usable{host=~\"${host}\",instance_id=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=\"ec2\"})",
@@ -587,7 +577,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "(sum by(host)(system_mem_total{host=~\"${host}\",service=~\"${service}\",instance_id=~\"${instance_id}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\", service=\"ec2\"})-sum by(host)(system_mem_usable{host=~\"${host}\",service=~\"${service}\",instance_id=~\"${instance_id}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\", service=\"ec2\"}))",
@@ -602,7 +592,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "fieldConfig": {
         "defaults": {
@@ -695,7 +685,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "max by (host)(system_disk_in_use{host=~\"${host}\",service=~\"${service}\",instance_id=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=\"ec2\"}) * 100",
@@ -710,7 +700,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(100)",
@@ -727,7 +717,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -811,7 +801,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "max by(device)(system_io_await{host=~\"${host}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instance_id=~\"${instanceid}\",service=~\"ec2\"})",
@@ -826,7 +816,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -909,7 +899,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(system_swap_free{host=~\"${host}\",service=~\"${service}\",instance_id=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=\"ec2\"})",
@@ -920,7 +910,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(system_swap_used{host=~\"${host}\",service=~\"${service}\",instance_id=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\", service=\"ec2\"})",
@@ -935,7 +925,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1018,7 +1008,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(system_load_15{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instance_id=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\",service=\"ec2\"})",
@@ -1029,7 +1019,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(system_load_5{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instance_id=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\",service=\"ec2\"})",
@@ -1041,7 +1031,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(system_load_1{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instance_id=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\",service=\"ec2\"})",
@@ -1058,7 +1048,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1072,7 +1062,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1083,7 +1073,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.ec2.cpuutilization{$scope,$region,$autoscaling_group,$image_id,$instance_type,$instanceid,$service,$host} by {instance-type}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1166,7 +1156,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instance_type)(aws_ec2_cpuutilization{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -1177,7 +1167,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(avg by(instance_type)(aws_ec2_cpuutilization{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service=~\"${service}\",host=~\"${host}\"})))",
@@ -1191,7 +1181,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1283,7 +1273,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(last_over_time(aws_ec2_cpuutilization{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -1301,7 +1291,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1383,7 +1373,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_cpucredit_balance{service=~\"${service}\",instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",host=~\"${host}\"})",
@@ -1394,7 +1384,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_cpucredit_usage{service=~\"${service}\",instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",host=~\"${host}\"})",
@@ -1409,7 +1399,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1492,7 +1482,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_cpusurplus_credit_balance{service=~\"${service}\",instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",host=~\"${host}\"})",
@@ -1503,7 +1493,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_cpusurplus_credits_charged{service=~\"${service}\",instanceid=~\"${instanceid}\",instanceid!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",host=~\"${host}\"})",
@@ -1519,7 +1509,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1533,7 +1523,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1544,7 +1534,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.ec2.network_in{$instanceid,$instance_type,$image_id,$autoscaling_group,$region,$scope,$service,$host} by {instance-type}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1628,7 +1618,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instance_type)(aws_ec2_network_in{instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"})",
@@ -1639,7 +1629,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(avg by(instance_type)(avg_over_time(aws_ec2_network_in{instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -1653,7 +1643,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1748,7 +1738,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instanceid)(last_over_time(aws_ec2_network_in{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -1768,7 +1758,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -1831,7 +1821,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_network_in{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -1848,7 +1838,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.ec2.network_out{$image_id,$scope,$region,$autoscaling_group,$instance_type,$instanceid,$service,$host} by {instance-type}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -1932,7 +1922,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instance_type)(aws_ec2_network_out{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\"})",
@@ -1943,7 +1933,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(avg by(instance_type)(avg_over_time(aws_ec2_network_out{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -1957,7 +1947,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2052,7 +2042,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instanceid)(last_over_time(aws_ec2_network_out{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -2072,7 +2062,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -2135,7 +2125,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_ec2_network_out{image_id=~\"${image_id}\",aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -2153,7 +2143,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2167,7 +2157,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2178,7 +2168,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.ec2.disk_write_bytes{$scope,$region,$autoscaling_group,$image_id,$instance_type,$instanceid,$service,$host} by {instance-type}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2262,7 +2252,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instance_type)(aws_ec2_disk_write_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -2273,7 +2263,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((5),(avg by(instance_type)(avg_over_time(aws_ec2_disk_write_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -2287,7 +2277,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.ec2.disk_read_bytes{$scope,$region,$autoscaling_group,$image_id,$instance_type,$instanceid,$service,$host} by {instance-type}, 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2371,7 +2361,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instance_type)(aws_ec2_disk_read_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -2382,7 +2372,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((5),(avg by(instance_type)(avg_over_time(aws_ec2_disk_read_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -2396,7 +2386,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2485,7 +2475,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(instanceid)(last_over_time(aws_ec2_disk_read_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -2503,7 +2493,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:aws.ec2.ebsread_bytes{$scope,$region,$autoscaling_group,$image_id,$instance_type,$instanceid,$service,$host} by {instance-type}.weighted(), 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2587,7 +2577,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instance_type)(aws_ec2_ebsread_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -2598,7 +2588,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((5),(sum by(instance_type)(avg_over_time(aws_ec2_ebsread_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -2612,7 +2602,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:aws.ec2.ebswrite_bytes{$scope,$region,$autoscaling_group,$image_id,$instance_type,$instanceid,$service,$host} by {instance-type}.weighted(), 5, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -2696,7 +2686,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instance_type)(aws_ec2_ebswrite_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -2707,7 +2697,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((5),(sum by(instance_type)(avg_over_time(aws_ec2_ebswrite_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))))",
@@ -2721,7 +2711,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2810,7 +2800,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(last_over_time(aws_ec2_disk_write_bytes{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -2828,7 +2818,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2922,7 +2912,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instanceid)(sum_over_time(last_over_time(aws_ec2_ebsread_ops{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m])[2m:]))",
@@ -2940,7 +2930,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3035,7 +3025,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instanceid)(sum_over_time(last_over_time(aws_ec2_ebswrite_ops{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m])[2m:]))",
@@ -3054,7 +3044,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -3068,7 +3058,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -3079,7 +3069,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3162,7 +3152,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(last_over_time(aws_ec2_host_ok{aws_account=~\"${aws_account}\",region=~\"${region}\",autoscaling_group=~\"${autoscaling_group}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[10m]))",
@@ -3179,7 +3169,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -3242,7 +3232,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_autoscaling_group_min_size_minimum{autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -3261,7 +3251,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -3324,7 +3314,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg(aws_autoscaling_group_desired_capacity{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",
@@ -3335,7 +3325,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg(aws_autoscaling_group_in_service_instances{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"})",
           "hide": true,
@@ -3344,7 +3334,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(avg(aws_autoscaling_group_in_service_instances{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"})/avg(aws_autoscaling_group_desired_capacity{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",service=~\"${service}\",host=~\"${host}\"})*100)",
           "refId": "C"
@@ -3359,7 +3349,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3445,7 +3435,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(autoscaling_group)(last_over_time(aws_ec2_status_check_failed{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m])) > 0",
@@ -3463,7 +3453,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3548,7 +3538,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(autoscaling_group)(last_over_time(aws_autoscaling_group_total_instances{instanceid=~\"${instanceid}\",instance_type=~\"${instance_type}\",image_id=~\"${image_id}\",autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"}[30m]))",
@@ -3568,7 +3558,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -3631,7 +3621,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(aws_autoscaling_group_max_size_maximum{autoscaling_group=~\"${autoscaling_group}\",aws_account=~\"${aws_account}\",region=~\"${region}\",image_id=~\"${image_id}\",instance_type=~\"${instance_type}\",instanceid=~\"${instanceid}\",instanceid!=\"\",service!=\"\",service=~\"${service}\",host=~\"${host}\"})",

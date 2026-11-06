@@ -170,6 +170,43 @@ class LibraryTest(unittest.TestCase):
                          [])
         self.assertEqual(validate.problems(self.root), [])
 
+    def test_write_resolves_datasource_placeholders_by_type(self):
+        placeholder = "${DS_KFUSEDATASOURCE}"
+        dash = {
+            "title": "Redis - Overview",
+            "__inputs": [{"name": "DS_KFUSEDATASOURCE", "type": "datasource"}],
+            "templating": {"list": [{"name": "host", "datasource": {"type": "prometheus", "uid": placeholder}}]},
+            "panels": [
+                {"datasource": {"uid": placeholder}, "targets": [
+                    {"datasource": {"type": "prometheus", "uid": placeholder}},
+                    {"datasource": {"name": "Expression", "type": "__expr__", "uid": placeholder}},
+                ]},
+                {"datasource": {"type": "loki", "uid": placeholder}, "panels": []},
+            ],
+        }
+        self.integration(dashboards={"overview.json": dash})
+        self.assertEqual(self.problems_after_write(), [])
+        written = self.dist("redis-datadog.json")["dashboards"][0]
+        self.assertNotIn("__inputs", written)
+        self.assertEqual(written["templating"]["list"][0]["datasource"]["uid"], "P09C4D52DEC9B98E6")
+        panel, logs = written["panels"]
+        self.assertEqual(panel["datasource"], {"uid": "P09C4D52DEC9B98E6"})
+        self.assertEqual(panel["targets"][0]["datasource"]["uid"], "P09C4D52DEC9B98E6")
+        self.assertEqual(panel["targets"][1]["datasource"]["uid"], "__expr__")
+        self.assertEqual(logs["datasource"]["uid"], "P10239062BE9ED4EF")
+
+    def test_unresolved_placeholder_in_a_source_is_a_problem(self):
+        self.integration(dashboards={"overview.json": {"title": "Redis - Overview", "panels": [
+            {"datasource": {"type": "prometheus", "uid": "${DS_KFUSEDATASOURCE}"}},
+        ]}})
+        self.assertTrue(any("instance fields" in p for p in validate.problems(self.root)))
+
+    def test_placeholder_of_an_unknown_type_is_a_problem(self):
+        self.integration(dashboards={"overview.json": {"title": "Redis - Overview", "panels": [
+            {"datasource": {"type": "tempo", "uid": "${DS_TRACES}"}},
+        ]}})
+        self.assertTrue(any("no known Kloudfuse UID" in p for p in self.problems_after_write()))
+
 
 if __name__ == "__main__":
     unittest.main()

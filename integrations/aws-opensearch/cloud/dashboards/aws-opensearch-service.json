@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -45,7 +35,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(min:aws.es.nodes{$scope,$domainname} by {domainname}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -118,7 +108,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(min by(domainname)(avg_over_time(aws_es_nodes{domainname=~\"${domainname}\"}[10m]))))",
@@ -135,7 +125,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.es.cluster_statusgreen{$scope,$domainname} by {domainname}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -247,7 +237,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(avg by(domainname)(avg_over_time(aws_es_cluster_statusgreen{domainname=~\"${domainname}\"}[10m]))))",
@@ -275,7 +265,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -385,7 +375,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(domainname)(aws_es_free_storage_space_sum{domainname=~\"${domainname}\"})",
@@ -395,7 +385,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(5)",
@@ -411,7 +401,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -515,7 +505,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_free_storage_space_minimum{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -523,7 +513,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(512)",
@@ -539,7 +529,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -622,7 +612,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(domainname)(aws_es_cluster_used_space{domainname=~\"${domainname}\"})*1000",
@@ -647,7 +637,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -731,7 +721,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_searchable_documents{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -743,7 +733,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -827,7 +817,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_deleted_documents{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -850,7 +840,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -960,7 +950,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_cpuutilization_maximum{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -968,7 +958,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(100)",
@@ -984,7 +974,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1094,7 +1084,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_jvmmemory_pressure_maximum{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1102,7 +1092,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(100)",
@@ -1129,7 +1119,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1213,7 +1203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "min by(domainname)(aws_es_read_iops{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1225,7 +1215,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1309,7 +1299,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_read_throughput{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1321,7 +1311,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1405,7 +1395,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_read_latency{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1417,7 +1407,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1501,7 +1491,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(domainname)(aws_es_write_iops{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1513,7 +1503,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1597,7 +1587,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(domainname)(aws_es_write_throughput{domainname=~\"${domainname}\"})",
           "refId": "A"
@@ -1609,7 +1599,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1693,7 +1683,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(domainname)(aws_es_write_latency{domainname=~\"${domainname}\"})*1000",

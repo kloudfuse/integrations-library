@@ -12,8 +12,12 @@ from pathlib import Path
 COLLECTORS = ("otel", "datadog", "cloud")
 RULE_FIELDS = ("title", "condition", "data", "noDataState", "execErrState")
 # Fields a Grafana export carries that belong to the instance it came from, not the library.
-DASHBOARD_INSTANCE_FIELDS = ("id", "uid", "version")
+DASHBOARD_INSTANCE_FIELDS = ("id", "uid", "version", "__inputs")
 RULE_INSTANCE_FIELDS = ("id", "uid", "orgId", "folderUID", "ruleGroup", "updated", "provenance")
+# Installs save dashboards without Grafana's import step, so an export's ${DS_*} would never be filled in.
+PLACEHOLDER = "${DS_"
+PROMETHEUS_UID = "P09C4D52DEC9B98E6"
+DATASOURCE_UIDS = {None: PROMETHEUS_UID, "prometheus": PROMETHEUS_UID, "loki": "P10239062BE9ED4EF", "__expr__": "__expr__"}
 STALE = "dist/ is out of date; run scripts/validate.py --write"
 
 
@@ -40,8 +44,20 @@ def _strip(obj: dict, fields) -> dict:
     return {k: v for k, v in obj.items() if k not in fields}
 
 
+def _resolve_datasources(node):
+    if isinstance(node, list):
+        return [_resolve_datasources(item) for item in node]
+    if not isinstance(node, dict):
+        return node
+    out = {key: _resolve_datasources(value) for key, value in node.items()}
+    ds = out.get("datasource")
+    if isinstance(ds, dict) and str(ds.get("uid", "")).startswith(PLACEHOLDER) and ds.get("type") in DATASOURCE_UIDS:
+        out["datasource"] = {**ds, "uid": DATASOURCE_UIDS[ds.get("type")]}
+    return out
+
+
 def _clean_dashboard(dash):
-    return _strip(dash, DASHBOARD_INSTANCE_FIELDS) if isinstance(dash, dict) else dash
+    return _resolve_datasources(_strip(dash, DASHBOARD_INSTANCE_FIELDS)) if isinstance(dash, dict) else dash
 
 
 def _clean_group(group):
@@ -136,6 +152,8 @@ def _folder_problems(folder: Path, allowed_tags: list[str]) -> list[str]:
             out.append(f"{name}: needs a title and a panels list")
         elif dash != _clean_dashboard(dash):
             out.append(f"{name}: has instance fields; run scripts/validate.py --write")
+        elif PLACEHOLDER in json.dumps(dash):
+            out.append(f"{name}: has a {PLACEHOLDER}...}} datasource placeholder with no known Kloudfuse UID")
 
     for path in _json_files(folder, "alerts"):
         group, error = _load(path)

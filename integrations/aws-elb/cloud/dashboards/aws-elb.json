@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -45,7 +35,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "fieldConfig": {
         "defaults": {
@@ -122,7 +112,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum (last_over_time(aws_elb_healthy_host_count_minimum{name=~\"$name\",availabilityzone=~\".+\"}[30m]))",
@@ -137,7 +127,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "fieldConfig": {
         "defaults": {
@@ -212,7 +202,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(last_over_time(aws_elb_un_healthy_host_count_maximum{name=~\"$name\",availabilityzone=~\".+\"}[30m]))",
@@ -227,7 +217,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "fieldConfig": {
         "defaults": {
@@ -276,7 +266,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(rate(aws_elb_request_count{name=~\"$name\",availabilityzone=~\".+\"}[30m]))",
@@ -291,7 +281,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "fieldConfig": {
         "defaults": {
@@ -340,7 +330,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg(aws_elb_latency{name=~\"$name\",availabilityzone=~\".+\"})",
@@ -368,7 +358,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -452,7 +442,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(host)(aws_elb_request_count{name=~\"${name}\",availabilityzone=~\".+\"})",
@@ -466,7 +456,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -550,7 +540,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(host)(sum_over_time(aws_elb_httpcode_elb_4xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) OR on() vector(0) ",
@@ -564,7 +554,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -667,7 +657,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "max by(host)(aws_elb_surge_queue_length{name=~\"${name}\",availabilityzone=~\".+\"}) OR on() vector(0) ",
@@ -677,7 +667,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "vector(1024)",
@@ -693,7 +683,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -777,7 +767,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(availability_zone)(aws_elb_request_count{name=~\"${name}\",availabilityzone=~\".+\"})",
@@ -791,7 +781,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -875,7 +865,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(host)(sum_over_time(aws_elb_httpcode_elb_5xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) OR on() vector(0) ",
@@ -889,7 +879,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -973,7 +963,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(host)(sum_over_time(aws_elb_spillover_count{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) or vector(0)",
@@ -998,7 +988,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1082,7 +1072,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(host)(aws_elb_latency{name=~\"${name}\",availabilityzone=~\".+\"})*1000000 OR on() vector(0)",
@@ -1096,7 +1086,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1180,7 +1170,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(availability_zone)(sum_over_time(aws_elb_httpcode_backend_4xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) OR on() vector(0)",
@@ -1194,7 +1184,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1278,7 +1268,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(sum_over_time(aws_elb_httpcode_backend_2xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) OR on() vector(0)",
@@ -1288,7 +1278,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(sum_over_time(aws_elb_httpcode_backend_3xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:]))",
@@ -1302,7 +1292,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1386,7 +1376,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(availability_zone)(sum_over_time(aws_elb_httpcode_backend_5xx{name=~\"${name}\",availabilityzone=~\".+\"}[2m:])) OR on() vector(0)",

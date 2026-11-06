@@ -55,12 +55,13 @@ Cloud integrations are split per service, one per metric namespace: `aws-rds`,
   with the rule nested under `grafana_alert`, is rejected. A group's name is its
   filename and must be the integration id or start with it, so groups from two
   integrations never collide in one folder.
-- Datasources are referenced by the fixed Kloudfuse datasource UIDs (e.g. Prometheus
-  `P09C4D52DEC9B98E6`).
+- Datasources are referenced by the fixed Kloudfuse datasource UIDs (Prometheus
+  `P09C4D52DEC9B98E6`, logs `P10239062BE9ED4EF`).
 
-`--write` strips instance fields from the sources (`id`, `uid`, `version` on dashboards;
-`uid`, `id`, `orgId`, `folderUID`, `ruleGroup`, `updated`, `provenance` on rules), so an
-export can be dropped in as is.
+`--write` strips instance fields from the sources (`id`, `uid`, `version`, `__inputs` on
+dashboards; `uid`, `id`, `orgId`, `folderUID`, `ruleGroup`, `updated`, `provenance` on
+rules) and replaces `${DS_*}` datasource placeholders with those UIDs, so an export can be
+dropped in as is.
 
 ## Adding or changing an integration
 

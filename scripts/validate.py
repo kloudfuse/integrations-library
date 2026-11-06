@@ -12,12 +12,21 @@ from pathlib import Path
 COLLECTORS = ("otel", "datadog", "cloud")
 RULE_FIELDS = ("title", "condition", "data", "noDataState", "execErrState")
 # Fields a Grafana export carries that belong to the instance it came from, not the library.
-DASHBOARD_INSTANCE_FIELDS = ("id", "uid", "version", "__inputs")
+DASHBOARD_INSTANCE_FIELDS = ("id", "uid", "version")
 RULE_INSTANCE_FIELDS = ("id", "uid", "orgId", "folderUID", "ruleGroup", "updated", "provenance")
-# Installs save dashboards without Grafana's import step, so an export's ${DS_*} would never be filled in.
 PLACEHOLDER = "${DS_"
 PROMETHEUS_UID = "P09C4D52DEC9B98E6"
-DATASOURCE_UIDS = {None: PROMETHEUS_UID, "prometheus": PROMETHEUS_UID, "loki": "P10239062BE9ED4EF", "__expr__": "__expr__"}
+LOGS_UID = "P10239062BE9ED4EF"
+# Installs save dashboards without Grafana's import step, so an export's ${DS_*} would never be filled in.
+# Keyed on name and type: neither alone identifies a datasource, since KfuseQLDatasource is also loki,
+# and panels switched to logs or expressions keep the default placeholder.
+PLACEHOLDER_UIDS = {
+    ("${DS_KFUSEDATASOURCE}", None): PROMETHEUS_UID,
+    ("${DS_KFUSEDATASOURCE}", "prometheus"): PROMETHEUS_UID,
+    ("${DS_KFUSEDATASOURCE}", "loki"): LOGS_UID,
+    ("${DS_KFUSEDATASOURCE}", "__expr__"): "__expr__",
+    ("${DS_KFUSELOGSDATASOURCE}", "loki"): LOGS_UID,
+}
 STALE = "dist/ is out of date; run scripts/validate.py --write"
 
 
@@ -51,13 +60,17 @@ def _resolve_datasources(node):
         return node
     out = {key: _resolve_datasources(value) for key, value in node.items()}
     ds = out.get("datasource")
-    if isinstance(ds, dict) and str(ds.get("uid", "")).startswith(PLACEHOLDER) and ds.get("type") in DATASOURCE_UIDS:
-        out["datasource"] = {**ds, "uid": DATASOURCE_UIDS[ds.get("type")]}
+    if isinstance(ds, dict) and (ds.get("uid"), ds.get("type")) in PLACEHOLDER_UIDS:
+        out["datasource"] = {**ds, "uid": PLACEHOLDER_UIDS[(ds.get("uid"), ds.get("type"))]}
     return out
 
 
 def _clean_dashboard(dash):
-    return _resolve_datasources(_strip(dash, DASHBOARD_INSTANCE_FIELDS)) if isinstance(dash, dict) else dash
+    if not isinstance(dash, dict):
+        return dash
+    resolved = _resolve_datasources(_strip(dash, DASHBOARD_INSTANCE_FIELDS))
+    # __inputs names the plugin a new PLACEHOLDER_UIDS entry needs, so it stays until nothing is left to map.
+    return resolved if PLACEHOLDER in json.dumps(resolved) else _strip(resolved, ("__inputs",))
 
 
 def _clean_group(group):

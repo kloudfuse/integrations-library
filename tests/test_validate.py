@@ -207,6 +207,28 @@ class LibraryTest(unittest.TestCase):
         ]}})
         self.assertTrue(any("no known Kloudfuse UID" in p for p in self.problems_after_write()))
 
+    def test_placeholder_is_not_guessed_from_its_type_alone(self):
+        for datasource in ({"type": "loki", "uid": "${DS_KFUSEQLDATASOURCE}"}, {"uid": "${DS_KFUSELOGSDATASOURCE}"}):
+            with self.subTest(datasource=datasource):
+                self.tearDown()
+                self.setUp()
+                self.integration(dashboards={"overview.json": {"title": "Redis - Overview", "panels": [
+                    {"datasource": datasource},
+                ]}})
+                self.assertTrue(any("no known Kloudfuse UID" in p for p in self.problems_after_write()))
+                written = self.dist("redis-datadog.json")["dashboards"][0]
+                self.assertEqual(written["panels"][0]["datasource"], datasource)
+
+    def test_write_keeps_inputs_until_every_placeholder_resolves(self):
+        inputs = [{"name": "DS_TRACES", "type": "datasource", "pluginId": "tempo"}]
+        folder = self.integration(dashboards={"overview.json": {"title": "Redis - Overview", "id": 7, "__inputs": inputs, "panels": [
+            {"datasource": {"type": "tempo", "uid": "${DS_TRACES}"}},
+        ]}})
+        self.assertTrue(any("no known Kloudfuse UID" in p for p in self.problems_after_write()))
+        written = json.loads((folder / "dashboards" / "overview.json").read_text())
+        self.assertEqual(written["__inputs"], inputs)
+        self.assertNotIn("id", written)
+
 
 if __name__ == "__main__":
     unittest.main()

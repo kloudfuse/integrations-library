@@ -60,8 +60,9 @@ Cloud integrations are split per service, one per metric namespace: `aws-rds`,
 
 `--write` strips instance fields from the sources (`id`, `uid`, `version`, `__inputs` on
 dashboards; `uid`, `id`, `orgId`, `folderUID`, `ruleGroup`, `updated`, `provenance` on
-rules) and replaces `${DS_*}` datasource placeholders with those UIDs, so an export can be
-dropped in as is.
+rules) and replaces the `${DS_*}` datasource placeholders it knows with those UIDs, so an
+export can be dropped in as is. A placeholder it doesn't know fails validation; add it to
+`PLACEHOLDER_UIDS` in `scripts/validate.py`.
 
 ## Adding or changing an integration
 

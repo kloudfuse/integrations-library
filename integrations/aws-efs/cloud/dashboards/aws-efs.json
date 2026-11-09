@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -49,7 +39,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "description": "Source Query: timeshift(count_nonzero(exclude_null(avg:aws.efs.total_iobytes{$region,$aws_account,$file_system} by {filesystemid})), -1000) - timeshift(count_nonzero(exclude_null(avg:aws.lambda.invocations{$region,$aws_account,$file_system} by {filesystemid})), -1000)\ntimeshift is converted to use offset\ncount_nonzero is converted to count aggregate with != 0 condition\nexclude_null adds a <label>~=\".+\" filter to the selector",
@@ -115,7 +105,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "count(avg by(filesystemid)(aws_efs_total_iobytes{region=~\"${region}\",aws_account=~\"${aws_account}\",filesystemid=~\"${file_system}\",filesystemid=~\".+\"}))",
@@ -136,7 +126,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "editable": true,
@@ -201,7 +191,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(sum_over_time(aws_efs_total_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[${__range_s}s]))",
@@ -231,7 +221,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:aws.efs.total_iobytes{$file_system,$aws_account,$region} by {filesystemid}, 10, 'mean', 'desc')\ntop is converted to topk",
       "editable": false,
@@ -304,7 +294,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "topk((10),(sum by(filesystemid)(sum_over_time(aws_efs_total_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[${__range_s}s]))))",
@@ -321,7 +311,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -405,7 +395,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(filesystemid)(sum_over_time(aws_efs_total_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[2m:]))",
           "refId": "A"
@@ -417,7 +407,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -501,7 +491,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(filesystemid)(aws_efs_percent_iolimit{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"})",
@@ -529,7 +519,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -613,7 +603,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(filesystemid)(sum_over_time(aws_efs_data_write_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[2m:]))",
           "refId": "A"
@@ -625,7 +615,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -709,7 +699,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(filesystemid)(sum_over_time(aws_efs_metadata_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[2m:]))",
           "refId": "A"
@@ -721,7 +711,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -805,7 +795,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(filesystemid)(sum_over_time(aws_efs_data_read_iobytes{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[2m:]))",
           "refId": "A"
@@ -830,7 +820,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.efs.burst_credit_balance{$file_system,$aws_account,$region} by {filesystemid}, 10, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -906,7 +896,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((10),(avg by(filesystemid)(avg_over_time(aws_efs_burst_credit_balance{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[10m]))))",
           "format": "table",
@@ -922,7 +912,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1006,7 +996,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(filesystemid)(sum_over_time(aws_efs_client_connections{filesystemid=~\"${file_system}\",aws_account=~\"${aws_account}\",region=~\"${region}\"}[2m:]))",
           "refId": "A"
@@ -1018,7 +1008,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1102,7 +1092,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(filesystemid)(aws_efs_permitted_throughput{region=~\"${region}\",aws_account=~\"${aws_account}\",filesystemid=~\"${file_system}\"})",
           "refId": "A"

@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -41,7 +31,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -55,7 +45,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -66,7 +56,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -150,7 +140,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg(sum_over_time(coredns_cache_misses_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))",
           "legendFormat": "Cache Misses",
@@ -163,7 +153,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -247,7 +237,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(type)(coredns_cache_size_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "refId": "A"
@@ -268,7 +258,7 @@
       "dataFormat": "timeseries",
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -342,7 +332,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(avg by(host)(sum_over_time(coredns_cache_hits_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))*100/(avg by(host)(sum_over_time(coredns_cache_hits_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))+avg by(host)(sum_over_time(coredns_cache_misses_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))))",
           "refId": "A"
@@ -368,7 +358,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -382,7 +372,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -393,7 +383,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -477,7 +467,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "max(sum_over_time(coredns_process_cpu_seconds_total{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))",
           "legendFormat": "CPU Seconds",
@@ -490,7 +480,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -574,7 +564,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg(coredns_process_open_fds{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "legendFormat": "Open File Descriptors",
@@ -588,7 +578,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -602,7 +592,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -613,7 +603,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -697,7 +687,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg(coredns_go_memstats_alloc_bytes{kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_cluster_name=~\"$cluster\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "legendFormat": "Allocated Bytes",
@@ -710,7 +700,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -794,7 +784,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg(coredns_go_memstats_heap_alloc_bytes{kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_cluster_name=~\"$cluster\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "legendFormat": "Allocated Heap",
@@ -808,7 +798,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -822,7 +812,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -833,7 +823,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -917,7 +907,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(coredns_forward_request_duration_seconds_sum{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "hide": true,
@@ -926,7 +916,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(coredns_forward_request_duration_seconds_sum{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})/sum(coredns_forward_request_duration_seconds_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}))",
           "legendFormat": "Upstream Request Latency",
@@ -935,7 +925,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(coredns_forward_request_duration_seconds_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "hide": true,
@@ -948,7 +938,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1032,7 +1022,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(coredns_request_duration_seconds_sum{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "hide": true,
@@ -1041,7 +1031,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "(sum(coredns_request_duration_seconds_sum{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})/sum(coredns_request_duration_seconds_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}))",
           "legendFormat": "Request Latency",
@@ -1050,7 +1040,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum(coredns_request_duration_seconds_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"})",
           "hide": true,
@@ -1064,7 +1054,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1078,7 +1068,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1089,7 +1079,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1173,7 +1163,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(rcode)(sum_over_time(coredns_forward_response_rcode_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))",
           "refId": "A"
@@ -1185,7 +1175,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1269,7 +1259,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "avg by(rcode)(sum_over_time(coredns_response_code_count{kube_cluster_name=~\"$cluster\",kube_deployment=~\"$deployment\",kube_service=~\"$service\",kube_namespace=~\"$namespace\",host=~\"$node\",label=~\"$label\"}[2m:]))",
           "refId": "A"

@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -35,7 +25,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -49,7 +39,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -60,7 +50,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -93,7 +83,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -103,7 +93,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -136,7 +126,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -147,7 +137,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -180,7 +170,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -191,7 +181,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -275,7 +265,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(result)(gcp_prometheus_scheduler_scheduling_attempt_duration_seconds_histogram_sum{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -289,7 +279,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -373,7 +363,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by (verb)(gcp_prometheus_apiserver_request_duration_seconds_histogram_sum)",
@@ -387,7 +377,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -471,7 +461,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(zone)(gcp_prometheus_node_collector_evictions_total_counter{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -485,7 +475,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -569,7 +559,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(result)(gcp_prometheus_scheduler_schedule_attempts_total_counter{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -583,7 +573,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -667,7 +657,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(verb)(gcp_prometheus_apiserver_request_total_counter{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -681,7 +671,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -765,7 +755,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum(sum_over_time(gcp_prometheus_scheduler_preemption_attempts_total_counter{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"}[2m]))",
@@ -779,7 +769,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -863,7 +853,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(queue)(gcp_prometheus_scheduler_pending_pods_gauge{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -877,7 +867,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -961,7 +951,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by (verb) (gcp_prometheus_apiserver_request_total_counter{code=~\"[45]..\"})",
@@ -975,7 +965,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1059,7 +1049,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(zone)(sum_over_time(gcp_prometheus_scheduler_preemption_victims_histogram_sum{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"}[2m]))",
@@ -1073,7 +1063,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1157,7 +1147,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(request_kind)(gcp_prometheus_apiserver_current_inflight_requests_gauge{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -1171,7 +1161,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1255,7 +1245,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(resource)(gcp_prometheus_apiserver_storage_objects_gauge{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -1270,7 +1260,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1284,7 +1274,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1295,7 +1285,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1392,7 +1382,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(instance_name)(gcp_gce_instance_cpu_utilization{})",
@@ -1407,7 +1397,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -1421,7 +1411,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -1432,7 +1422,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.node.cpu.allocatable_utilization{$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {node_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -1509,7 +1499,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(sum by(node_name)(avg_over_time(gcp_gke_node_cpu_allocatable_utilization{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
@@ -1526,7 +1516,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1610,7 +1600,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "sum by(node_name)(gcp_gke_node_cpu_allocatable_utilization{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
@@ -1625,7 +1615,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:gcp.gke.node.memory.used_bytes{$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {node_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -1701,7 +1691,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(avg by(node_name)(avg_over_time(gcp_gke_node_memory_used_bytes{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
           "format": "table",
@@ -1717,7 +1707,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1801,7 +1791,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(node_name)(gcp_gke_node_memory_used_bytes{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "refId": "A"
@@ -1813,7 +1803,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1897,7 +1887,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(node_name)(gcp_gke_node_network_received_bytes_count{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "Received Bytes",
@@ -1906,7 +1896,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(node_name)(gcp_gke_node_network_sent_bytes_count{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "Transmitted Bytes",
@@ -1919,7 +1909,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:gcp.gke.node.ephemeral_storage.used_bytes{$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {node_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -1995,7 +1985,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(avg by(node_name)(avg_over_time(gcp_gke_node_ephemeral_storage_used_bytes{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
@@ -2012,7 +2002,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2096,7 +2086,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(node_name)(gcp_gke_node_ephemeral_storage_used_bytes{kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "refId": "A"
@@ -2109,7 +2099,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2123,7 +2113,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2134,7 +2124,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.container.cpu.limit_utilization{$namespace,$deployment,!pod_name:no_pod,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {pod_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -2210,7 +2200,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(sum by(pod_name)(avg_over_time(gcp_gke_container_cpu_limit_utilization{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",pod_name!=\"no_pod\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
@@ -2227,7 +2217,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2311,7 +2301,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(pod_name)(gcp_gke_container_cpu_limit_utilization{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "% CPU",
@@ -2324,7 +2314,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.container.memory.used_bytes{$namespace,$deployment,!pod_name:no_pod,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {pod_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -2400,7 +2390,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(sum by(pod_name)(avg_over_time(gcp_gke_container_memory_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",pod_name!=\"no_pod\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
@@ -2417,7 +2407,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2501,7 +2491,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(pod_name)(gcp_gke_container_memory_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "refId": "A"
@@ -2513,7 +2503,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2597,7 +2587,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(pod_name)(gcp_gke_pod_network_received_bytes_count{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "Received Bytes",
@@ -2606,7 +2596,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(pod_name)(gcp_gke_pod_network_sent_bytes_count{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "Transmitted Bytes",
@@ -2619,7 +2609,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.pod.volume.used_bytes{$namespace,$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {pod_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -2695,7 +2685,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(sum by(pod_name)(avg_over_time(gcp_gke_pod_volume_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
           "format": "table",
@@ -2711,7 +2701,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -2795,7 +2785,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(pod_name)(gcp_gke_pod_volume_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "refId": "A"
@@ -2808,7 +2798,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -2822,7 +2812,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -2833,7 +2823,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.container.cpu.limit_utilization{$namespace,$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {container_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -2909,7 +2899,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(sum by(container_name)(avg_over_time(gcp_gke_container_cpu_limit_utilization{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
           "format": "table",
@@ -2925,7 +2915,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3009,7 +2999,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(container_name)(gcp_gke_container_cpu_limit_utilization{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "CPU Usage",
@@ -3022,7 +3012,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.container.memory.used_bytes{$namespace,$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {container_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -3098,7 +3088,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(sum by(container_name)(avg_over_time(gcp_gke_container_memory_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
           "format": "table",
@@ -3114,7 +3104,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3198,7 +3188,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(container_name)(gcp_gke_container_memory_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "CPU Usage",
@@ -3211,7 +3201,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3295,7 +3285,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(container_name)(gcp_gke_container_ephemeral_storage_used_bytes{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "legendFormat": "CPU Usage",
@@ -3308,7 +3298,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(sum:gcp.gke.container.restart_count{$namespace,$deployment,$statefulset,$daemonset,$job,cluster_name:$cluster.value,project_id:$project.value} by {container_name}, 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -3384,7 +3374,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(sum by(container_name)(avg_over_time(gcp_gke_container_restart_count{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"}[10m]))))",
           "format": "table",
@@ -3400,7 +3390,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -3484,7 +3474,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "sum by(container_name)(gcp_gke_container_restart_count{namespace_name=~\"${namespace}\",kube_deployment=~\"${deployment}\",kube_stateful_set=~\"${statefulset}\",kube_daemon_set=~\"${daemonset}\",kube_job=~\"${job}\",cluster_name=~\"$cluster_name\",project_id=~\"$project\"})",
           "refId": "A"

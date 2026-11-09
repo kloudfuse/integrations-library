@@ -1,14 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_KFUSEDATASOURCE",
-      "label": "KfuseDatasource",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -35,7 +25,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -49,7 +39,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -62,7 +52,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -126,7 +116,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg(sum_over_time(aws_events_matched_events{region=~\"${region}\"}[$__range]))",
@@ -145,7 +135,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 2,
       "description": "Source Query: count_not_null(avg:aws.events.invocations{$region,$rulename} by {rulename}.as_count())\ncount_not_null is converted to present_over_time",
@@ -210,7 +200,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "present_over_time((avg by(rulename)(sum_over_time(aws_events_invocations{region=~\"${region}\",rulename=~\"${rulename}\"}[2m])))[$__range:])",
@@ -221,7 +211,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -244,7 +234,7 @@
       "colorValue": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -308,7 +298,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -328,7 +318,7 @@
       "colorBackground": false,
       "colorValue": false,
       "datasource": {
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "decimals": 0,
       "editable": true,
@@ -392,7 +382,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -412,7 +402,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -426,7 +416,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -437,7 +427,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -521,7 +511,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -537,7 +527,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -621,7 +611,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(rulename)(sum_over_time(aws_events_throttled_rules{region=~\"${region}\",rulename=~\"${rulename}\",rulename=~\".+\"}[2m:]))",
@@ -635,7 +625,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.events.triggered_rules{$region,$rulename} by {rulename}.as_count(), 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -722,7 +712,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(avg by(rulename)(sum_over_time(avg_over_time(aws_events_triggered_rules{region=~\"${region}\",rulename=~\"${rulename}\"}[10m])[2m:]))))",
           "format": "table",
@@ -738,7 +728,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.events.throttled_rules{$region,$rulename} by {rulename}.as_count(), 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -813,7 +803,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(avg by(rulename)(sum_over_time(avg_over_time(aws_events_throttled_rules{region=~\"${region}\",rulename=~\"${rulename}\",rulename=~\".+\"}[10m])[2m:]))))",
@@ -831,7 +821,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "gridPos": {
         "h": 1,
@@ -845,7 +835,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "refId": "A"
         }
@@ -856,7 +846,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -939,7 +929,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(rulename)(sum_over_time(aws_events_invocations{region=~\"${region}\",rulename=~\"${rulename}\",rulename=~\".+\"}[2m:]))",
@@ -953,7 +943,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "editable": false,
       "error": false,
@@ -1036,7 +1026,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "avg by(rulename)(sum_over_time(aws_events_failed_invocations{region=~\"${region}\",rulename=~\"${rulename}\",rulename=~\".+\"}[2m]))",
@@ -1050,7 +1040,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.events.invocations{$region,$rulename} by {rulename}.as_count(), 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -1137,7 +1127,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "expr": "bottomk((5),(avg by(rulename)(sum_over_time(avg_over_time(aws_events_invocations{region=~\"${region}\",rulename=~\"${rulename}\"}[10m])[2m:]))))",
           "format": "table",
@@ -1153,7 +1143,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_KFUSEDATASOURCE}"
+        "uid": "P09C4D52DEC9B98E6"
       },
       "description": "Source Query: top(avg:aws.events.failed_invocations{$region,$rulename} by {rulename}.as_count(), 5, 'mean', 'asc')\ntop is converted to topk",
       "editable": false,
@@ -1240,7 +1230,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_KFUSEDATASOURCE}"
+            "uid": "P09C4D52DEC9B98E6"
           },
           "editorMode": "code",
           "expr": "bottomk((5),(avg by(rulename)(sum_over_time(avg_over_time(aws_events_failed_invocations{region=~\"${region}\",rulename=~\"${rulename}\",rulename=~\".+\"}[10m])[2m:]))))",
